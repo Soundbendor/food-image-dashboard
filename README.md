@@ -1,4 +1,4 @@
-# OSU Capstone AWS Template
+# Food Image Dashboard
 
 ## Initial Setup
 
