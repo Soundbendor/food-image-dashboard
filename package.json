@@ -1,21 +1,38 @@
 {
-  "name": "food-image-dashboard",
+  "name": "meal-spotter-dashboard",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^2.1.3",
+    "web-vitals": "^2.1.4"
+  },
   "scripts": {
-    "build-cicd": "bash ./pipeline/run-cicd.sh $npm_package_name create $npm_config_stage",
-    "update-cicd": "bash ./pipeline/run-cicd.sh $npm_package_name update $npm_config_stage",
-    "build-cicd-windows": "bash ./pipeline/run-cicd.sh %npm_package_name% create %npm_config_stage%",
-    "update-cicd-windows": "bash ./pipeline/run-cicd.sh %npm_package_name% update %npm_config_stage%"
+    "start": "set PORT=3000 && react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "devDependencies": {
-    "serverless-webpack": "^5.10.0",
-    "webpack-node-externals": "^3.0.0"
-  },
-  "dependencies": {
-    "serverless-plugin-resource-tagging": "^1.2.0"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
