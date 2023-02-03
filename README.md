@@ -1,4 +1,4 @@
-#Meal Spotter Dashboard Project
+# Food Image Dashboard Project
 
 Oregon State University Capstone Project
 
