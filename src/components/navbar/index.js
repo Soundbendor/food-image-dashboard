@@ -12,8 +12,14 @@ const Navbar = () => {
         <NavLink to="" activeStyle>
             Home
           </NavLink>
-          <NavLink to="/about" activeStyle>
-            About
+          <NavLink to="/user" activeStyle>
+            User
+          </NavLink>
+          <NavLink to="/patients" activeStyle>
+            Patients
+          </NavLink>
+          <NavLink to="/meals" activeStyle>
+            Meals
           </NavLink>
         </NavMenu>
       </Nav>
