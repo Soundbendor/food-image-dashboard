@@ -11,6 +11,7 @@ export function FooterContainer() {
                 <Footer.Title>About Us</Footer.Title>
                     <Footer.Link href="#">The Team</Footer.Link>
                     <Footer.Link href="#">Oregon State University</Footer.Link>
+                    <Footer.Link href="#">soundbendor</Footer.Link>
                 </Footer.Column>
                 <Footer.Column>
                 <Footer.Title>Services</Footer.Title>
