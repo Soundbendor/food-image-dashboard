@@ -3,7 +3,7 @@ import React from "react";
 
 export const Container = styled.div`
   padding: 80px 60px;
-  background-image: linear-gradient( 109.6deg,  rgba(218,185,252,1) 11.2%, rgba(125,89,252,1) 91.1% );
+  background-image: linear-gradient( 73.1deg,  rgba(34,126,34,1) 8%, rgba(99,162,17,1) 86.9% );
   @media (max-width: 1000px) {
     padding: 70px 30px;
   }
