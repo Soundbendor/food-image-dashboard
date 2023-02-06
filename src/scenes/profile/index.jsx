@@ -1,10 +1,5 @@
 import { Box, useTheme } from "@mui/material";
 import Header from "../../components/Header";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
 
 const Profile = () => {
@@ -13,7 +8,17 @@ const Profile = () => {
   return (
     <Box m="20px">
       <Header title="Profile" subtitle="Your Account" />
-
+      <Header title="default_user"/>
+      <Box display="flex" justifyContent="left" alignItems="left">
+        <img
+            alt="profile-user"
+            width="300px"
+            height="300px"
+            src={`../../assets/user.jpg`}
+            style={{ cursor: "pointer", borderRadius: "75%" }}
+        />
+        </Box>
+        <Header title="Bio"/>
       
     </Box>
   );

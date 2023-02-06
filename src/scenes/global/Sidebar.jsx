@@ -74,7 +74,9 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
+      
                 <img src={MealSpotterLogo} alt="mealspotter.svg" width="90%" />
+                
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -85,13 +87,16 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
+              <a href="../profile">
                 <img
                   alt="profile-user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/user.png`}
+                  href="../profile"
+                  src={`../../assets/user.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
+                </a>
               </Box>
               <Box textAlign="center">
                 <Typography
