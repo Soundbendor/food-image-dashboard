@@ -1,27 +1,43 @@
-import './App.css';
-import Navbar from './components/navbar';
-import React, { Component }  from 'react';
-import { BrowserRouter as Router, Routes, Route}
-    from 'react-router-dom';
-import Home from './pages';
-import User from './pages/user';
-import Patients from './pages/patients';
-import Meals from './pages/meals';
-import { FooterContainer } from './components/footer/footer'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Topbar from "./scenes/global/Topbar";
+import Sidebar from "./scenes/global/Sidebar";
+import Dashboard from "./scenes/dashboard";
+import Team from "./scenes/team";
+import Contacts from "./scenes/contacts";
+import Patients from "./scenes/patients";
+import Form from "./scenes/form";
+import FAQ from "./scenes/faq";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import Calendar from "./scenes/calendar/calendar";
 
 function App() {
+  const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
+
   return (
-      <Router>
-      <Navbar />
-      <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route path='/user' element={<User/>} />
-          <Route path='/patients' element={<Patients />} />
-          <Route path='/meals' element={<Meals/>} />
-      </Routes>
-      <FooterContainer/>
-      </Router>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+          <main className="content">
+            <Topbar setIsSidebar={setIsSidebar} />
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/patients" element={<Patients />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/calendar" element={<Calendar />} />
+            </Routes>
+          </main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
-  }
-    
-  export default App;
+}
+
+export default App;
