@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Wrapper, Row, Column, Link, Title } from './footer-elements';
 
+// Exports footer-elements functions into useable Footer function
 export default function Footer({ children, ...restProps }) {
   return <Container {...restProps}>{children}</Container>;
 }
