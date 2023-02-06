@@ -20,7 +20,7 @@ const BarChart = ({ isDashboard = false }) => {
           },
           legend: {
             text: {
-              fill: colors.grey[100],
+              fill: "colors.grey[100]",
             },
           },
           ticks: {

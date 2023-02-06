@@ -10,12 +10,17 @@ const Patients = () => {
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
+    { field: "id", 
+    headerName: "ID", 
+    flex: 0.5 , 
+    cellClassName: "name-column--cell",
+    },
     {
       field: "first_name",
       headerName: "First",
       flex: 1,
       cellClassName: "name-column--cell",
+      color: "#000000",
     },
     {
         field: "last_name",
@@ -28,11 +33,13 @@ const Patients = () => {
       headerName: "Username",
       headerAlign: "left",
       align: "left",
+      cellClassName: "name-column--cell",
     },
     {
       field: "userhash",
       headerName: "Userhash",
       flex: 1,
+      cellClassName: "name-column--cell",
     },
   ];
 
@@ -52,24 +59,22 @@ const Patients = () => {
             borderBottom: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: "#000000",
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
+            backgroundColor: "#ced4da",
           },
           "& .MuiDataGrid-footerContainer": {
             borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
           },
           "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
+            color: "#000000",
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: `${colors.grey[100]} !important`,
+            color: "#000000",
           },
         }}
       >

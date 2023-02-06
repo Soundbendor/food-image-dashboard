@@ -3,8 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Team from "./scenes/team";
-import Contacts from "./scenes/contacts";
+import Profile from "./scenes/profile";
 import Patients from "./scenes/patients";
 import Form from "./scenes/form";
 import FAQ from "./scenes/faq";
@@ -26,8 +25,7 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/patients" element={<Patients />} />
               <Route path="/form" element={<Form />} />
               <Route path="/faq" element={<FAQ />} />
