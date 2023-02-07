@@ -5,7 +5,6 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Profile from "./scenes/profile";
 import Patients from "./scenes/patients";
-import Form from "./scenes/form";
 import FAQ from "./scenes/faq";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
@@ -27,7 +26,6 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/patients" element={<Patients />} />
-              <Route path="/form" element={<Form />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
             </Routes>
