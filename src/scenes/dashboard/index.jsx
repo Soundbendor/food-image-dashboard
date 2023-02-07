@@ -47,7 +47,7 @@ const Dashboard = () => {
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
         gridAutoRows="140px"
-        gap="20px"
+        gap="10px"
       >
         {/* ROW 1 */}
         <Box
@@ -86,7 +86,9 @@ const Dashboard = () => {
             }
           />
         </Box>
+        
         <Box
+          
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -103,7 +105,6 @@ const Dashboard = () => {
             }
           />
         </Box>
-
         {/* ROW 2 */}
         <Box
           gridColumn="span 8"
@@ -123,7 +124,7 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Recent Patient Food Intake
+                Recent Patient Food Intake %
               </Typography>
               <Typography
                 variant="h3"
@@ -132,13 +133,6 @@ const Dashboard = () => {
               >
                 Past 30 Days
               </Typography>
-            </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
-                />
-              </IconButton>
             </Box>
           </Box>
           <Box height="250px" m="-20px 0 0 0">
