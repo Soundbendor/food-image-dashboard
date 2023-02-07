@@ -35,7 +35,7 @@ const Dashboard = () => {
           >
             
             <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            Download Data
             
           </Button>
           </a>
