@@ -5,6 +5,7 @@ import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
 import Profile from "./scenes/profile";
 import Patients from "./scenes/patients";
+import Login from "./scenes/login"
 import FAQ from "./scenes/faq";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
@@ -23,7 +24,9 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              {<Route path="/" element={<Login/>} /> }
+              {/* <Route path="/" element={<Dashboard />} /> */}
+              <Route path="/dashboardnpm" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/patients" element={<Patients />} />
               <Route path="/faq" element={<FAQ />} />

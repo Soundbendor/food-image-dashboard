@@ -1,23 +1,91 @@
+import React from "react";
 import { Box } from "@mui/material";
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
+import { styled } from '@mui/material/styles';
 import Header from "../../components/Header";
+import { mockDataTeam } from "../../data/mockData";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  alignItems: "stretch"
+}));
 
 const Profile = () => {
+  const [data] = React.useState(mockDataTeam);
+  const index = 0;
   return (
-    <Box m="20px">
-      <Header title="Profile" subtitle="Your Account" />
-      <Header title="default_user"/>
-      <Box display="flex" justifyContent="left" alignItems="left">
-        <img
-            alt="profile-user"
-            width="300px"
-            height="300px"
-            src={`../../assets/user.jpg`}
-            style={{ cursor: "pointer", borderRadius: "75%" }}
-        />
-        </Box>
-        <Header title="Bio"/>
-      
-    </Box>
+    <>
+      <div className="container emp-profile" m="20px">
+        <form method="">
+          <div paddingLeft={10}>
+
+          </div>
+          <div className="col-md-2">
+            <Box display="flex" justifyContent="center">
+              <img
+                alt="profile-user"
+                width="200px"
+                height="200px"
+                src={`../../assets/user.jpg`}
+                style={{ cursor: "pointer", borderRadius: "75%" }}
+              />
+            </Box>
+            <Box className="bio" display="flex" justifyContent="center">
+              <h1> {data[index].name}</h1>
+            </Box>
+            <Box className="bio" display="flex" justifyContent="center" paddingLeft={10} paddingRight={10}>
+
+              <p> SHORT BIO: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tellus malesuada, pellentesque quam in, pharetra sem. Sed lorem ligula, placerat mattis tellus tincidunt, gravida volutpat libero. Nulla facilisi. Nulla convallis magna velit, a rutrum ipsum porta ac. Duis scelerisque justo eu lectus volutpat porttitor. Phasellus nec nunc vehicula, varius massa vel, ultrices diam. Etiam sapien felis, fringilla dictum facilisis quis, tincidunt eu arcu. Quisque nec sem vitae dolor viverra eleifend. Duis in sapien vestibulum, imperdiet elit vitae, vehicula ipsum. Maecenas pellentesque tortor sit amet condimentum ultrices.</p>
+            </Box>
+          </div>
+          <div className="col-md-6">
+
+            <Grid margin={5} rowSpacing={1} container spacing={2}>
+              <Grid xs={4}>
+                <Item> Email: {data[index].email}</Item>
+              </Grid>
+              <Grid xs={4}>
+                <Item>Age: {data[index].age}</Item>
+              </Grid>
+              <Grid xs={4}>
+                <Item>Email</Item>
+              </Grid>
+              <Grid xs={4}>
+                <Item>Location</Item>
+              </Grid>
+              <Grid xs={4}>
+                <Item>Phone</Item>
+              </Grid>
+              <Grid xs={4}>
+                <Item>Birthday</Item>
+              </Grid>
+            </Grid>
+
+          </div>
+        </form>
+
+      </div>
+    </>
+    // <Box m="20px">
+    // <Header title="Profile" subtitle="Your Account" />
+    // <Header title="default_user"/>
+    // <Box display="flex" justifyContent="left" alignItems="left">
+    //   <img
+    //       alt="profile-user"
+    //       width="300px"
+    //       height="300px"
+    //       src={`../../assets/user.jpg`}
+    //       style={{ cursor: "pointer", borderRadius: "75%" }}
+    //   />
+    //   </Box>
+    //     <Header title="Bio"/>
+
+    // </Box>
   );
 };
 
