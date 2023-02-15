@@ -6,6 +6,7 @@ import Dashboard from "./scenes/dashboard";
 import Profile from "./scenes/profile";
 import Patients from "./scenes/patients";
 import Login from "./scenes/login"
+import Register from "./scenes/Register"
 import FAQ from "./scenes/faq";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
@@ -14,8 +15,8 @@ import Calendar from "./scenes/calendar/calendar";
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-
   return (
+    
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -25,6 +26,8 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               {<Route path="/" element={<Login/>} /> }
+              {<Route path="/login" element={<Login/>} /> }
+              <Route path="/register" element={<Register/>} />
               {/* <Route path="/" element={<Dashboard />} /> */}
               <Route path="/dashboardnpm" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
