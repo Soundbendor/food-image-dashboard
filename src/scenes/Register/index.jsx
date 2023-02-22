@@ -25,6 +25,12 @@ export const Register = (props) => {
             <Link to="/">
                 <Button type='submit' variant="contained" fullWidth>Submit</Button>
             </Link>
+            <Typography > 
+                    <Link to = "/"  style= {text}>
+                        Cancel
+                </Link>
+            </Typography>
+
         </Paper>
     </Grid>
     )

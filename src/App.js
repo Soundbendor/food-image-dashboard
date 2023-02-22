@@ -8,6 +8,7 @@ import Patients from "./scenes/patients";
 import Login from "./scenes/login"
 import Register from "./scenes/Register"
 import FAQ from "./scenes/faq";
+import Meal from "./scenes/meal";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
@@ -34,6 +35,7 @@ function App() {
               <Route path="/patients" element={<Patients />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/meal" element={<Meal />} />
             </Routes>
           </main>
         </div>
