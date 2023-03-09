@@ -2,42 +2,56 @@ import { Box } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { mockDataPatients } from "../../data/mockData";
 import Header from "../../components/Header";
+import React,{useState,useEffect} from 'react'
+import Axios from 'axios'
 
 const Patients = () => {
 
   const columns = [
-    { field: "id", 
+    { field: "UserID", 
     headerName: "ID", 
     flex: 0.5 , 
     cellClassName: "name-column--cell",
     },
     {
-      field: "first_name",
+      field: "FName",
       headerName: "First",
       flex: 1,
       cellClassName: "name-column--cell",
       color: "#000000",
     },
     {
-        field: "last_name",
+        field: "LName",
         headerName: "Last",
         flex: 1,
         cellClassName: "name-column--cell",
     },
     {
-      field: "username",
+      field: "UserName",
       headerName: "Username",
       headerAlign: "left",
       align: "left",
       cellClassName: "name-column--cell",
     },
     {
-      field: "userhash",
+      field: "UserHash",
       headerName: "Userhash",
       flex: 1,
       cellClassName: "name-column--cell",
     },
   ];
+  
+  const [userList,setUserList]=useState([]);
+  
+  useEffect(()=>{
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUsers").then((data)=>{
+      console.log(data)
+      setUserList(data.data)
+    });
+  },[]);
+  
+  console.log(userList);
+
 
   return (
     <Box m="20px">
@@ -75,7 +89,8 @@ const Patients = () => {
         }}
       >
         <DataGrid
-          rows={mockDataPatients}
+	  getRowId={(row) => row.UserID}
+          rows={userList}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
