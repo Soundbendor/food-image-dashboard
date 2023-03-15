@@ -14,6 +14,7 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import TablePagination from '@mui/material/TablePagination';
+import Axios from 'axios'
 
 function createData(name, calories, fat, carbs, protein) {
   return {

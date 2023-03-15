@@ -139,19 +139,20 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
+              title="Meals"
+              to="/meal"
+              icon={<RestaurantIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Meal"
-              to="/meal"
-              icon={<RestaurantIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            
           </Box>
         </Menu>
       </ProSidebar>

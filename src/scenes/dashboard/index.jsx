@@ -11,6 +11,8 @@ import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import React,{useState,useEffect} from 'react'
+import Axios from 'axios'
 
 const Dashboard = () => {
   const theme = useTheme();

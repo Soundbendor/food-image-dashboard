@@ -5,6 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { styled } from '@mui/material/styles';
 import Header from "../../components/Header";
 import { mockDataTeam } from "../../data/mockData";
+import Axios from 'axios'
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -40,7 +41,7 @@ const Profile = () => {
             </Box>
             <Box className="bio" display="flex" justifyContent="center" paddingLeft={10} paddingRight={10}>
 
-              <p> SHORT BIO: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tellus malesuada, pellentesque quam in, pharetra sem. Sed lorem ligula, placerat mattis tellus tincidunt, gravida volutpat libero. Nulla facilisi. Nulla convallis magna velit, a rutrum ipsum porta ac. Duis scelerisque justo eu lectus volutpat porttitor. Phasellus nec nunc vehicula, varius massa vel, ultrices diam. Etiam sapien felis, fringilla dictum facilisis quis, tincidunt eu arcu. Quisque nec sem vitae dolor viverra eleifend. Duis in sapien vestibulum, imperdiet elit vitae, vehicula ipsum. Maecenas pellentesque tortor sit amet condimentum ultrices.</p>
+              
             </Box>
           </div>
           <div className="col-md-6">
