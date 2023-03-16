@@ -87,7 +87,7 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
-              <a href="../profile">
+      
                 <img
                   alt="profile-user"
                   width="100px"
@@ -96,7 +96,7 @@ const Sidebar = () => {
                   src={`../../assets/user.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
-                </a>
+            
               </Box>
               <Box textAlign="center">
                 <Typography
