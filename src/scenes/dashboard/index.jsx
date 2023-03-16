@@ -17,6 +17,23 @@ import Axios from 'axios'
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [userList,setUserList]=useState([]);
+  const [foodList,setFoodList]=useState([]);
+  
+  useEffect(()=>{
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUsers").then((data)=>{
+      console.log(data)
+      setUserList(data.data)
+    });
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getFoods").then((data)=>{
+      console.log(data)
+      setFoodList(data.data)
+    });
+  },[]);
+  
+  console.log(userList);
+  console.log(foodList);
+
 
   return (
     <Box m="20px">
@@ -79,7 +96,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="889"
+            title={foodList.length}
             subtitle="Meals in Database"
             icon={
               <FastfoodIcon
@@ -98,7 +115,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="441"
+            title={userList.length}
             subtitle="Patients"
             icon={
               <PersonAddIcon
@@ -159,6 +176,7 @@ const Dashboard = () => {
               Recent Patients
             </Typography>
           </Box>
+          
           {mockTransactions.map((transaction, i) => (
             <Box
               key={`${transaction.txId}-${i}`}
