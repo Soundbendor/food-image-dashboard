@@ -58,7 +58,8 @@ const Dashboard = () => {
         </Box>
       </Box>
 
-      {/* GRID & CHARTS */}
+      {/* GRID & CHARTS 
+      grid column charts have a span of 12 per row*/}
       <Box
         display="grid"
         gridTemplateColumns="repeat(12, 1fr)"
@@ -68,7 +69,7 @@ const Dashboard = () => {
         {/* ROW 1 */}
         <Box
           
-          gridColumn="span 3"
+          gridColumn="span 4"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -86,7 +87,7 @@ const Dashboard = () => {
         </Box>
         
         <Box
-          gridColumn="span 3"
+          gridColumn="span 4"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -105,7 +106,7 @@ const Dashboard = () => {
         
         
         <Box
-          gridColumn="span 3"
+          gridColumn="span 4"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -126,8 +127,8 @@ const Dashboard = () => {
         {/* ROW 2 */}
         
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn="span 6"
+          gridRow="span 3"
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
@@ -170,8 +171,8 @@ const Dashboard = () => {
           ))}
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn="span 6"
+          gridRow="span 3"
           backgroundColor={colors.primary[400]}
           overflow="auto"
         >
@@ -216,7 +217,7 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
-          gridColumn="span 8"
+          gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
@@ -249,7 +250,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
