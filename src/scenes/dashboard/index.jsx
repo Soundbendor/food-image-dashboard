@@ -177,9 +177,9 @@ const Dashboard = () => {
             </Typography>
           </Box>
           
-          {mockTransactions.map((transaction, i) => (
+          {userList.map((patients, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${patients.UserID}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -192,20 +192,13 @@ const Dashboard = () => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {patients.FName + " " + patients.LName}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {patients.UserName}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                ${transaction.cost}
-              </Box>
+              <Box color={colors.grey[100]}>{patients.UserID}</Box>
             </Box>
           ))}
         </Box>

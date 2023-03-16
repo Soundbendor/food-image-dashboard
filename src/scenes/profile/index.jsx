@@ -1,10 +1,11 @@
-import React from "react";
+
 import { Box } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import { styled } from '@mui/material/styles';
 import Header from "../../components/Header";
 import { mockDataTeam } from "../../data/mockData";
+import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -19,6 +20,19 @@ const Item = styled(Paper)(({ theme }) => ({
 const Profile = () => {
   const [data] = React.useState(mockDataTeam);
   const index = 0;
+
+  const [userList,setUserList]=useState([]);
+  
+  useEffect(()=>{
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUsers").then((data)=>{
+      console.log(data)
+      setUserList(data.data)
+    });
+  },[]);
+  
+  console.log(userList);
+  const propertyValues = Object.values(userList);
+  
   return (
     <>
       <div className="container emp-profile" m="20px">
@@ -37,7 +51,8 @@ const Profile = () => {
               />
             </Box>
             <Box className="bio" display="flex" justifyContent="center">
-              <h1> {data[index].name}</h1>
+              
+              <h1> {typeof userList}</h1>
             </Box>
             <Box className="bio" display="flex" justifyContent="center" paddingLeft={10} paddingRight={10}>
 
