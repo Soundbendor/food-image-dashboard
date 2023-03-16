@@ -140,7 +140,7 @@ const Sidebar = () => {
             />
             <Item
               title="Meals"
-              to="/meal"
+              to="/meals"
               icon={<RestaurantIcon />}
               selected={selected}
               setSelected={setSelected}

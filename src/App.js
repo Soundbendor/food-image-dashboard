@@ -7,7 +7,7 @@ import Profile from "./scenes/profile";
 import Patients from "./scenes/patients";
 import Login from "./scenes/login"
 import Register from "./scenes/register"
-import Meal from "./scenes/meal";
+import Meals from "./scenes/meals";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
@@ -33,7 +33,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/patients" element={<Patients />} />
               <Route path="/calendar" element={<Calendar />} />
-              <Route path="/meal" element={<Meal />} />
+              <Route path="/meals" element={<Meals />} />
             </Routes>
           </main>
         </div>
