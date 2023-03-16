@@ -6,7 +6,7 @@ import Dashboard from "./scenes/dashboard";
 import Profile from "./scenes/profile";
 import Patients from "./scenes/patients";
 import Login from "./scenes/login"
-import Register from "./scenes/Register"
+import Register from "./scenes/register"
 import Meal from "./scenes/meal";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
