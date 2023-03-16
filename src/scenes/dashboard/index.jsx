@@ -70,6 +70,7 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <Box
+          
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -77,17 +78,16 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="61"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
+            title={userList.length}
+            subtitle="Patients"
             icon={
-              <EmailIcon
+              <PersonAddIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
           />
         </Box>
+        
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -106,8 +106,8 @@ const Dashboard = () => {
           />
         </Box>
         
+        
         <Box
-          
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
@@ -115,16 +115,109 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title={userList.length}
-            subtitle="Patients"
+            title="61"
+            subtitle="Emails Sent"
+            progress="0.75"
+            increase="+14%"
             icon={
-              <PersonAddIcon
+              <EmailIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
           />
         </Box>
         {/* ROW 2 */}
+        
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            borderBottom={`4px solid ${colors.primary[500]}`}
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Your Patient List
+            </Typography>
+          </Box>
+          
+          {userList.map((patients, i) => (
+            <Box
+              key={`${patients.UserID}`}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              borderBottom={`4px solid ${colors.primary[500]}`}
+              p="15px"
+            >
+              <Box>
+                <Typography
+                  color={colors.greenAccent[500]}
+                  variant="h5"
+                  fontWeight="600"
+                >
+                  {patients.FName + " " + patients.LName}
+                </Typography>
+                <Typography color={colors.grey[100]}>
+                  {patients.UserName}
+                </Typography>
+              </Box>
+              <Box color={colors.grey[100]}>{patients.UserID}</Box>
+            </Box>
+          ))}
+        </Box>
+        <Box
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.primary[400]}
+          overflow="auto"
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            borderBottom={`4px solid ${colors.primary[500]}`}
+            colors={colors.grey[100]}
+            p="15px"
+          >
+            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+              Meals List
+            </Typography>
+          </Box>
+          
+          {foodList.map((meals, i) => (
+            <Box
+              key={`${meals.FoodName}`}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              borderBottom={`4px solid ${colors.primary[500]}`}
+              p="15px"
+            >
+              <Box>
+                <Typography
+                  color={colors.greenAccent[500]}
+                  variant="h5"
+                  fontWeight="600"
+                >
+                  {meals.FoodName}
+                </Typography>
+                <Typography color={colors.grey[100]}>
+                  {meals.Calories + " Calories Per Serving"}
+                </Typography>
+              </Box>
+              <Box color={colors.grey[100]}>{meals.FoodID}</Box>
+            </Box>
+          ))}
+        </Box>
+
+        {/* ROW 3 */}
         <Box
           gridColumn="span 8"
           gridRow="span 2"
@@ -162,53 +255,6 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
-          overflow="auto"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Patients
-            </Typography>
-          </Box>
-          
-          {userList.map((patients, i) => (
-            <Box
-              key={`${patients.UserID}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {patients.FName + " " + patients.LName}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {patients.UserName}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{patients.UserID}</Box>
-            </Box>
-          ))}
-        </Box>
-
-        {/* ROW 3 */}
-          
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
         >
           <Typography
             variant="h5"
@@ -221,6 +267,9 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box>
         </Box>
+        
+          
+        
       </Box>
     </Box>
   );
