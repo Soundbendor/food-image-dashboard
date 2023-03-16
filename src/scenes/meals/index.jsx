@@ -103,7 +103,7 @@ const Meal = () => {
 	return (
 	 <Box m="20px">
       <Header
-        title="Meal"
+        title="Meals"
       />
       <Box
         m="40px 0 0 0"

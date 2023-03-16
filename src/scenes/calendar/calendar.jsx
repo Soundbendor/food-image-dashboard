@@ -48,7 +48,7 @@ const Calendar = () => {
 
   return (
     <Box m="20px">
-      <Header title="Calendar" subtitle="Full Calendar Interactive Page" />
+      <Header title="Calendar"/>
 
       <Box display="flex" justifyContent="space-between">
         {/* CALENDAR SIDEBAR */}
@@ -109,18 +109,6 @@ const Calendar = () => {
             select={handleDateClick}
             eventClick={handleEventClick}
             eventsSet={(events) => setCurrentEvents(events)}
-            initialEvents={[
-              {
-                id: "12315",
-                title: "Appointment with JS Stevenson",
-                date: "2022-09-14",
-              },
-              {
-                id: "5123",
-                title: "Taco Tuesday",
-                date: "2022-09-28",
-              },
-            ]}
           />
         </Box>
       </Box>
