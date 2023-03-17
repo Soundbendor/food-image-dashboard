@@ -2,10 +2,14 @@ export const mockDataTeam = [
   {
     id: 1,
     name: "Jon Snow",
+    title: "Nutritionist",
     email: "jonsnow@gmail.com",
     age: 35,
+    city: "Bend",
+    state: "OR",
     phone: "(665)121-5454",
-    access: "admin",
+    birthday: "01/23/88",
+    access: "employee",
   },
   {
     id: 2,

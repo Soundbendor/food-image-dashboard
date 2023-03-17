@@ -1,4 +1,3 @@
-
 import { Box } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -31,8 +30,6 @@ const Profile = () => {
   },[]);
   
   console.log(userList);
-  
-  
   return (
     <>
       <div className="container emp-profile" m="20px">
@@ -50,12 +47,14 @@ const Profile = () => {
                 style={{ cursor: "pointer", borderRadius: "75%" }}
               />
             </Box>
-            <Box className="bio" display="flex" justifyContent="center">
-              
-              <h1> {typeof userList}</h1>
+            <Box className="name" display="flex" justifyContent="center">
+              <h1> {data[index].name}</h1>
             </Box>
+            <Box className="title" display="flex" justifyContent="center">
+            <h3> {data[index].title}</h3>
+            </Box>
+            
             <Box className="bio" display="flex" justifyContent="center" paddingLeft={10} paddingRight={10}>
-
               
             </Box>
           </div>
@@ -69,17 +68,18 @@ const Profile = () => {
                 <Item>Age: {data[index].age}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Email</Item>
+                <Item>Birthday: {data[index].birthday}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Location</Item>
+                <Item>Phone: {data[index].phone}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Phone</Item>
+                <Item>Location: {data[index].city + ", " + data[index].state}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Birthday</Item>
+                <Item>Access: {data[index].access}</Item>
               </Grid>
+              
             </Grid>
 
           </div>
