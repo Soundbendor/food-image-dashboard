@@ -6,7 +6,6 @@ import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 
 const Patients = () => {
-
   const columns = [
     { field: "UserID", 
     headerName: "ID", 

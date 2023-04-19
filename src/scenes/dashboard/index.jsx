@@ -2,6 +2,7 @@ import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Header from "../../components/Header";
@@ -39,7 +40,7 @@ const Dashboard = () => {
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard!" />
 
         <Box>
-        <a href="../../data/mockData.js" download="">
+	  <a style={{ 'text-decoration': 'none' }} href="../addmeal">
           <Button
             sx={{
               backgroundColor: colors.blueAccent[700],
@@ -50,11 +51,11 @@ const Dashboard = () => {
             }}
           >
             
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Data
+            <AddCircleOutlineIcon sx={{ mr: "10px" }} />
+            Add a Meal
             
           </Button>
-          </a>
+	  </a>
         </Box>
       </Box>
 
