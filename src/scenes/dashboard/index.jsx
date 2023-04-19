@@ -43,8 +43,8 @@ const Dashboard = () => {
 	  <a style={{ 'text-decoration': 'none' }} href="../addmeal">
           <Button
             sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
+              backgroundColor: colors.boxColor.main,
+              color: colors.headingColor.main,
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
@@ -71,7 +71,7 @@ const Dashboard = () => {
         <Box
           
           gridColumn="span 4"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -81,25 +81,28 @@ const Dashboard = () => {
             subtitle="Patients"
             icon={
               <PersonAddIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.headingColor.main, fontSize: "26px" }}
               />
             }
           />
         </Box>
         
         <Box
+        
           gridColumn="span 4"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
+          
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
           <StatBox
             title={foodList.length}
+            
             subtitle="Meals in Database"
             icon={
               <FastfoodIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.headingColor.main, fontSize: "26px" }}
               />
             }
           />
@@ -108,7 +111,7 @@ const Dashboard = () => {
         
         <Box
           gridColumn="span 4"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -120,7 +123,7 @@ const Dashboard = () => {
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
+                sx={{ color: colors.headingColor.main, fontSize: "26px" }}
               />
             }
           />
@@ -130,18 +133,18 @@ const Dashboard = () => {
         <Box
           gridColumn="span 6"
           gridRow="span 3"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
           overflow="auto"
         >
           <Box
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
+            borderBottom={`4px solid ${colors.headingColor.main}`}
             colors={colors.grey[100]}
             p="15px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+            <Typography color={colors.headingColor.main} variant="h5" fontWeight="600">
               Your Patient List
             </Typography>
           </Box>
@@ -152,40 +155,40 @@ const Dashboard = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
+              borderBottom={`4px solid ${colors.headingColor.main}`}
               p="15px"
             >
               <Box>
                 <Typography
-                  color={colors.greenAccent[500]}
+                  color={colors.headingColor.main}
                   variant="h5"
                   fontWeight="600"
                 >
                   {patients.FName + " " + patients.LName}
                 </Typography>
-                <Typography color={colors.grey[100]}>
+                <Typography color={colors.headingColor.main}>
                   {patients.UserName}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{patients.UserID}</Box>
+              <Box color={colors.headingColor.main}>{patients.UserID}</Box>
             </Box>
           ))}
         </Box>
         <Box
           gridColumn="span 6"
           gridRow="span 3"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
           overflow="auto"
         >
           <Box
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
+            borderBottom={`4px solid ${colors.headingColor.main}`}
+            colors={colors.headingColor.main}
             p="15px"
           >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+            <Typography color={colors.headingColor.main} variant="h5" fontWeight="600">
               Meals List
             </Typography>
           </Box>
@@ -196,22 +199,22 @@ const Dashboard = () => {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
+              borderBottom={`4px solid ${colors.headingColor.main}`}
               p="15px"
             >
               <Box>
                 <Typography
-                  color={colors.greenAccent[500]}
+                  color={colors.headingColor.main}
                   variant="h5"
                   fontWeight="600"
                 >
                   {meals.FoodName}
                 </Typography>
-                <Typography color={colors.grey[100]}>
+                <Typography color={colors.headingColor.main}>
                   {meals.Calories + " Calories Per Serving"}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{meals.FoodID}</Box>
+              <Box color={colors.headingColor.main}>{meals.FoodID}</Box>
             </Box>
           ))}
         </Box>
@@ -220,7 +223,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 6"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
         >
           <Box
             mt="25px"
@@ -233,14 +236,14 @@ const Dashboard = () => {
               <Typography
                 variant="h5"
                 fontWeight="600"
-                color={colors.grey[100]}
+                color={colors.headingColor.main}
               >
                 Recent Patient Food Intake %
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
-                color={colors.greenAccent[500]}
+                color={colors.headingColor.main}
               >
                 Past 30 Days
               </Typography>
@@ -253,11 +256,12 @@ const Dashboard = () => {
         <Box
           gridColumn="span 6"
           gridRow="span 2"
-          backgroundColor={colors.primary[400]}
+          backgroundColor={colors.boxColor.main}
         >
           <Typography
             variant="h5"
             fontWeight="600"
+            color={colors.headingColor.main}
             sx={{ padding: "30px 30px 0 30px" }}
           >
             Calories of Food

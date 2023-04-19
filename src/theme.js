@@ -5,6 +5,18 @@ import { createTheme } from "@mui/material/styles";
 export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
+        backgroundColor: {
+          main: "#D73F09"  //Beaver Orange
+        },
+
+        headingColor:{
+          main: "#ECEFF1",
+        },
+
+        boxColor: {
+          main: "#121212"
+        },
+
         grey: {
           100: "#000000",
           200: "#000000",
@@ -20,7 +32,7 @@ export const tokens = (mode) => ({
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#000000",
-          400: "#8e9aaf", // sidebar color
+          400: "#8e9aaf", // sidebar/box color
           500: "#000000",
           600: "#000000",
           700: "#000000",
@@ -33,7 +45,7 @@ export const tokens = (mode) => ({
           300: "#000000",
           400: "#000000",
           500: "#000000",
-          600: "#495057", //background color
+          600: "#D73F09", //background color
           700: "#000000",
           800: "#000000",
           900: "#000000",
@@ -62,6 +74,17 @@ export const tokens = (mode) => ({
         },
       }
     : {
+      backgroundColor: {
+        main: "#D73F09"  //Beaver Orange
+      },
+
+      headingColor:{
+        main: "#000000",
+      },
+
+      boxColor: {
+        main: "#FFFFFF"
+      },
         grey: {
           100: "#000000",
           200: "#000000",
