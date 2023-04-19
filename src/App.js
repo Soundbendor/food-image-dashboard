@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
@@ -16,26 +16,27 @@ import Calendar from "./scenes/calendar/calendar";
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+  const location = useLocation();
+  const showSidebar = location.pathname !== "/login" && location.pathname !== "/";
+
   return (
-    
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Sidebar isSidebar={isSidebar} />
+          {showSidebar && <Sidebar isSidebar={isSidebar} />}
           <main className="content">
-            <Topbar setIsSidebar={setIsSidebar} />
+            {showSidebar && <Topbar setIsSidebar={setIsSidebar} />}
             <Routes>
-              {<Route path="/" element={<Login/>} /> }
-              {<Route path="/login" element={<Login/>} /> }
+              <Route path="/" element={<Login/>} />
+              <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />
-              {/* <Route path="/" element={<Dashboard />} /> */}
               <Route path="/dashboardnpm" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/patients" element={<Patients />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/meals" element={<Meals />} />
-	      <Route path="/addmeal" element={<AddMeal />} />
+              <Route path="/addmeal" element={<AddMeal />} />
             </Routes>
           </main>
         </div>
@@ -45,3 +46,4 @@ function App() {
 }
 
 export default App;
+
