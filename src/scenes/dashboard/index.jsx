@@ -36,8 +36,8 @@ const Dashboard = () => {
   return (
     <Box m="20px">
       {/* HEADER */}
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard!" />
+      <Box display="flex" justifyContent="space-between" alignItems="center" >
+        <Header title="DASHBOARD" subtitle="Welcome to your dashboard!" color={colors.headingColor.main}/>
 
         <Box>
 	  <a style={{ 'text-decoration': 'none' }} href="../addmeal">

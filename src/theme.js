@@ -10,11 +10,15 @@ export const tokens = (mode) => ({
         },
 
         headingColor:{
-          main: "#ECEFF1",
+          main: "#ECEFF1"
         },
 
         boxColor: {
           main: "#121212"
+        },
+
+        shadowColor: {
+          main: "#000000"
         },
 
         grey: {
@@ -84,6 +88,10 @@ export const tokens = (mode) => ({
 
       boxColor: {
         main: "#FFFFFF"
+      },
+
+      shadowColor: {
+        main: "#ECEFF1"
       },
         grey: {
           100: "#000000",
@@ -189,28 +197,34 @@ export const themeSettings = (mode) => {
       h1: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
+        textShadow: `1px 1px 0px ${colors.shadowColor.main}`,
       },
       h2: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 50,
+        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
       },
       h3: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
+        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
       },
       h4: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
+        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
       },
       h5: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 25,
+        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
       },
       h6: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
+        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
       },
-    },
+    }
   };
 };
 

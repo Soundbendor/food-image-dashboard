@@ -21,7 +21,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     <MenuItem
       active={selected === title}
       style={{
-        color: colors.grey[100],
+        color: colors.headingColor.main,
       }}
       onClick={() => setSelected(title)}
       icon={icon}
@@ -42,7 +42,7 @@ const Sidebar = () => {
     <Box
       sx={{
         "& .pro-sidebar-inner": {
-          background: `${colors.primary[400]} !important`,
+          background: `${colors.boxColor.main} !important`,
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -51,10 +51,10 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#ffffff !important",
+          color: "#D73F09 !important",
         },
         "& .pro-menu-item.active": {
-          color: "#ffffff !important",
+          color: "#D73F09 !important",
         },
       }}
     >
@@ -66,7 +66,7 @@ const Sidebar = () => {
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.grey[100],
+              color: colors.boxColor.main,
             }}
           >
             {!isCollapsed && (
@@ -103,13 +103,13 @@ const Sidebar = () => {
               <Box textAlign="center">
                 <Typography
                   variant="h2"
-                  color={colors.grey[100]}
+                  color = {colors.headingColor.main}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
                 Jon Snow
                 </Typography>
-                <Typography variant="h5" color={"#000000"}>
+                <Typography variant="h5" color={colors.headingColor.main}>
                   Nutritionist
                 </Typography>
               </Box>
