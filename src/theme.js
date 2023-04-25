@@ -6,7 +6,7 @@ export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
         backgroundColor: {
-          main: "#D73F09"  //Beaver Orange
+          main: "#F97B22"  //Beaver Orange
         },
 
         headingColor:{
@@ -14,7 +14,7 @@ export const tokens = (mode) => ({
         },
 
         boxColor: {
-          main: "#faad91"
+          main: "#FFFFFF99"
         },
 
         sidebarColor: {
@@ -53,7 +53,7 @@ export const tokens = (mode) => ({
           300: "#000000",
           400: "#000000",
           500: "#000000",
-          600: "#D73F09", //background color
+          600: "#F97B22", //background color
           700: "#000000",
           800: "#000000",
           900: "#000000",

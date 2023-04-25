@@ -53,10 +53,10 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#D73F09 !important",
+          color: "#F97B22 !important",
         },
         "& .pro-menu-item.active": {
-          color: "#D73F09 !important",
+          color: "#F97B22 !important",
         },
       }}
     >
