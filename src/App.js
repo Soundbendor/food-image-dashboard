@@ -17,7 +17,10 @@ function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
   const location = useLocation();
-  const showSidebar = location.pathname !== "/login" && location.pathname !== "/";
+  const showSidebar = 
+  location.pathname !== "/login" &&
+  location.pathname !== "/" &&
+  location.pathname !== "/register";
 
   return (
     <ColorModeContext.Provider value={colorMode}>
