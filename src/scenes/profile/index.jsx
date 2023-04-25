@@ -20,6 +20,8 @@ const Item = styled(Paper)(({ theme }) => ({
 const Profile = () => {
   const [data] = React.useState(mockDataTeam);
   const index = 0;
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   const [userList,setUserList]=useState([]);
   
@@ -44,15 +46,30 @@ const Profile = () => {
                 alt="profile-user"
                 width="200px"
                 height="200px"
-                src={`../../assets/user.jpg`}
+                src={"../../assets/user.jpg"}
                 style={{ cursor: "pointer", borderRadius: "75%" }}
               />
             </Box>
             <Box className="name" display="flex" justifyContent="center">
-              <h1> {data[index].name}</h1>
+              
+              <Typography
+                color={colors.headingColor.main}
+                variant="h2"
+                fontWeight="600"
+              >
+                {data[index].name}
+              </Typography>
+                
             </Box>
             <Box className="title" display="flex" justifyContent="center">
-            <h3> {data[index].title}</h3>
+            
+            <Typography
+                color={colors.headingColor.main}
+                variant="h5"
+                fontWeight="600"
+              >
+                {data[index].title}
+              </Typography>
             </Box>
             
             <Box className="bio" display="flex" justifyContent="center" paddingLeft={10} paddingRight={10}>
