@@ -70,7 +70,7 @@ const Dashboard = () => {
         {/* ROW 1 */}
         <Box
           
-          gridColumn="span 4"
+          gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
           display="flex"
           alignItems="center"
@@ -89,7 +89,7 @@ const Dashboard = () => {
         
         <Box
         
-          gridColumn="span 4"
+          gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
           
           display="flex"
@@ -108,26 +108,6 @@ const Dashboard = () => {
           />
         </Box>
         
-        
-        <Box
-          gridColumn="span 4"
-          backgroundColor={colors.boxColor.main}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="61"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.headingColor.main, fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
         {/* ROW 2 */}
         
         <Box
