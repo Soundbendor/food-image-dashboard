@@ -14,6 +14,10 @@ export const tokens = (mode) => ({
         },
 
         boxColor: {
+          main: "#faad91"
+        },
+
+        sidebarColor: {
           main: "#121212"
         },
 
@@ -87,6 +91,10 @@ export const tokens = (mode) => ({
       },
 
       boxColor: {
+        main: "#FFFFFF"
+      },
+
+      sidebarColor: {
         main: "#FFFFFF"
       },
 
@@ -197,32 +205,33 @@ export const themeSettings = (mode) => {
       h1: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
-        textShadow: `1px 1px 0px ${colors.shadowColor.main}`,
+        textShadow: `3px 0px 0px ${colors.shadowColor.main}`,
       },
       h2: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 50,
-        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
+        textShadow: `4px 0px 2px ${colors.shadowColor.main}`,
       },
       h3: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 24,
-        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
+        textShadow: `2px 1px 2px ${colors.shadowColor.main}`,
+        
       },
       h4: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 40,
-        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
+        textShadow: `2px 1px 2px ${colors.shadowColor.main}`,
       },
       h5: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 25,
-        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
+        textShadow: `2px 1px 2px ${colors.shadowColor.main}`,
       },
       h6: {
         fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
         fontSize: 14,
-        textShadow: `1px 1px 1px ${colors.shadowColor.main}`,
+        textShadow: `2px 1px 2px ${colors.shadowColor.main}`,
       },
     }
   };
