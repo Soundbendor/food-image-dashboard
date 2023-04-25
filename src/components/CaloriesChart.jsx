@@ -8,13 +8,13 @@ const data = [
     { food: 'Fried Chicken', calories: 310 },
     { food: 'Spaghetti', calories: 221 },
   ]
-const CaloriesChart = ({ isDashboard = false }) => {
+const CaloriesChart = ({chartData}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   return (
     <ResponsiveBar
-    data={data}
+    data={chartData}
     keys={['calories']}
     indexBy="food"
     margin={{ top: 50, right: 50, bottom: 50, left: 60 }}

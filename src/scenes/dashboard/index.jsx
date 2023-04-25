@@ -248,7 +248,16 @@ const Dashboard = () => {
             Calories of Food
           </Typography>
           <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true} />
+          <CaloriesChart
+  chartData={[
+    { food: 'Pizza', calories: 285 },
+    { food: 'Hamburger', calories: 354 },
+    { food: 'Salad', calories: 85 },
+    { food: 'Fried Chicken', calories: 310 },
+    { food: 'Spaghetti', calories: 221 },
+  ]}
+/>
+
           </Box>
         </Box> 
       </Box>
