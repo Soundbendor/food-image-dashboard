@@ -41,8 +41,10 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
+        
         "& .pro-sidebar-inner": {
           background: `${colors.boxColor.main} !important`,
+  
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",

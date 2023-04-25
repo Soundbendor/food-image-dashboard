@@ -9,6 +9,7 @@ import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
+import CaloriesChart from "../../components/CaloriesChart";
 import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 
