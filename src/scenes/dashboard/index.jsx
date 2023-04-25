@@ -76,12 +76,13 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <Box
-          
+          sx={{ borderBottom: 3 , borderRight: 5, borderColor: 'primary.main'}}
           gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
           display="flex"
           alignItems="center"
           justifyContent="center"
+          
         >
           <StatBox
             title={userList.length}
@@ -95,7 +96,7 @@ const Dashboard = () => {
         </Box>
         
         <Box
-        
+        sx={{ borderBottom: 3 , borderRight: 5, borderColor: 'primary.main'}}
           gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
           
@@ -118,6 +119,7 @@ const Dashboard = () => {
         {/* ROW 2 */}
         
         <Box
+        sx={{ borderBottom: 3 , borderRight: 5, borderColor: 'primary.main'}}
           gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={colors.boxColor.main}
@@ -162,12 +164,14 @@ const Dashboard = () => {
           ))}
         </Box>
         <Box
+        sx={{ borderBottom: 3 , borderRight: 5, borderColor: 'primary.main'}}
           gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={colors.boxColor.main}
           overflow="auto"
         >
           <Box
+          
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -208,6 +212,7 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
+        sx={{ borderBottom: 3 , borderRight: 5, borderColor: 'primary.main'}}
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.boxColor.main}
@@ -241,6 +246,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
+        sx={{ borderBottom: 3 , borderRight: 5, borderColor: 'primary.main'}}
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.boxColor.main}
