@@ -12,7 +12,7 @@ import Axios from 'axios'
 export const Register = (props) => {
 
     const text={color:"white"}
-    const paperStyle={padding :20,height:'67vh',width:500, margin:"20px auto"}
+    const paperStyle={padding :20,height:'70vh',width:500, margin:"100px auto"}
     const avatarStyle={backgroundColor:'grey'}
 
     const [email, setEmail] = useState('');

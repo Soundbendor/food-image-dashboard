@@ -8,7 +8,7 @@ import Axios from 'axios'
 
 const Login=(props)=>{
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
+    const paperStyle={padding :20,height:'70vh',width:280, margin:"100px auto"}
     const avatarStyle={backgroundColor:'grey'}
     const text={color:"white"}
     const [name, setName] = useState('');
@@ -39,20 +39,20 @@ const Login=(props)=>{
                 </Grid>
                 <TextField label='Username' value={name} onChange={(e) => setName(e.target.value)}type="username" variant="filled" fullWidth required/>
                 <TextField label='Password' value={pass} onChange={(e) => setPass(e.target.value)} type="password" variant="filled" fullWidth required/>
-                <FormControlLabel
+                {/* <FormControlLabel
                     control={
                     <Checkbox
                         name="checkedB"
                         color="primary"
                     />
                     }
-                    label="Remember me"
-                 />
+                     label="Remember me"
+                 /> */}
                 {/* <Link to="/dashboardnpm"> */}
                     <Button type='submit' variant="contained" onClick = {login} fullWidth>Login</Button>
                 {/* </Link> */}
                 <h10 style={{color: 'red', marginTop: "10px"}}>{loginStatus}</h10>
-                <Typography > 
+                <Typography style={{marginTop: "10px"}}> 
                     <Link to = "/register"  style= {text}>
                         Sign Up 
                 </Link>
