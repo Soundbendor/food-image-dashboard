@@ -1,19 +1,12 @@
 import { useState } from "react";
+import { tokens } from "../../theme";
 import FullCalendar, { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import {Box,List,ListItem,ListItemText,Typography,useTheme,} from "@mui/material";
 import Header from "../../components/Header";
-import { tokens } from "../../theme";
 
 const Calendar = () => {
   const theme = useTheme();
@@ -48,7 +41,13 @@ const Calendar = () => {
 
   return (
     <Box m="20px">
-      <Header title="Calendar"/>
+      <Typography
+        color={colors.headingColor.main}
+        variant="h2"
+        fontWeight="600"
+      >
+        Calendar
+      </Typography>
 
       <Box display="flex" justifyContent="space-between">
         {/* CALENDAR SIDEBAR */}

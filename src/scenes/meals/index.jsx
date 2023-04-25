@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { Box, Button, useTheme } from "@mui/material";
+import { tokens } from "../../theme";
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
@@ -20,6 +21,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import Header from "../../components/Header";
 
 const Meal = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [foodList,setFoodList]=useState([]);
@@ -102,9 +105,13 @@ const Meal = () => {
     console.log(foodList);
 	return (
 	 <Box m="20px">
-      <Header
-        title="Meals"
-      />
+      <Typography
+        color={colors.headingColor.main}
+        variant="h2"
+        fontWeight="600"
+      >
+        Meals
+      </Typography>
       <Box
         m="40px 0 0 0"
         height="75vh"

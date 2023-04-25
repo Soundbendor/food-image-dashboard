@@ -39,12 +39,12 @@ const Dashboard = () => {
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center" >
       <Typography
-                  color={colors.headingColor.main}
-                  variant="h2"
-                  fontWeight="600"
-                >
-                  DASHBOARD
-                  </Typography>
+        color={colors.headingColor.main}
+        variant="h2"
+        fontWeight="600"
+      >
+        DASHBOARD
+      </Typography>
 
         <Box>
 	  <a style={{ 'text-decoration': 'none' }} href="../addmeal">
