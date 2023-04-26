@@ -13,6 +13,7 @@ import HealingOutlinedIcon from '@mui/icons-material/HealingOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { mockDataTeam } from "../../data/mockData";
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -153,6 +154,13 @@ const Sidebar = () => {
               title="Calendar"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="About Us"
+              to="/about"
+              icon={<PeopleAltIcon/>}
               selected={selected}
               setSelected={setSelected}
             />
