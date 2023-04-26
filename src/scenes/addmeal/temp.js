@@ -17,10 +17,10 @@ export default function MealPortion({ mealPortion, changeSelect, changeServings 
   return (
     <Box m="10px"
       p="10px"
-      backgroundColor={colors.primary[400]}
+      backgroundColor={colors.boxColor.main}
       display="flex"
-      width="380px">
-      <label style={{ color: "black", marginTop: "9px" }}>
+      width="400px">
+      <label style={{ color: colors.headingColor.main, "font-size": "20px"}}>
 	Select Food: 
 	<select defaultValue={mealPortion.options[0].FoodName} 
 	  onChange={handleFoodSelect}
@@ -28,21 +28,23 @@ export default function MealPortion({ mealPortion, changeSelect, changeServings 
 	  ml: "50px",
 	  color: "black",
 	  "marginRight": "40px",
-	  "marginTop": "8px"}}> 
+	  "marginTop": "16px",
+	  "font-size": "15px"}}> 
 	  {mealPortion.options.map((OptionList, key) => {
             return <option name="food" key={key} value={OptionList.FoodName}>{OptionList.FoodName}</option>;
           })}
 	</select>
       </label>
-      <label style={{ ml: "15px", color: "black" }}>
+      <label style={{ ml: "15px", color: colors.headingColor.main, "font-size": "20px"}}>
         Number of Servings: 
-	  <IconButton color="primary" aria-label="get serving size">
+	  <IconButton color="colors.headingColor.main" aria-label="get serving size">
 	    <HelpIcon />
 	  </IconButton>
 	<input
        	  type="text"
 	  id="servings"
-	  name="servings" 
+	  name="servings"
+	  style={{ "font-size": "15px" }}
 	  onChange={handleServingInput}/>
       </label>
     </Box>

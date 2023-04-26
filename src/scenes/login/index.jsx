@@ -8,7 +8,7 @@ import Axios from 'axios'
 
 const Login=(props)=>{
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"20px auto"}
+    const paperStyle={padding :20,height:'70vh',width:280, margin:"100px auto"}
     const avatarStyle={backgroundColor:'grey'}
     const text={color:"white"}
     const [name, setName] = useState('');
