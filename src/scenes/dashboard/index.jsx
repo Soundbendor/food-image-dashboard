@@ -72,7 +72,7 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <Box
-          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main' }}
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
           display="flex"
@@ -92,7 +92,7 @@ const Dashboard = () => {
         </Box>
 
         <Box
-          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main' }}
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
 
@@ -115,7 +115,7 @@ const Dashboard = () => {
         {/* ROW 2 */}
 
         <Box
-          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main' }}
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={colors.boxColor.main}
@@ -126,7 +126,7 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
             borderBottom={`4px solid ${colors.headingColor.main}`}
-            colors={colors.grey[100]}
+            colors={colors.headingColor.main}
             p="15px"
           >
             <Typography color={colors.headingColor.main} variant="h5" fontWeight="600">
@@ -160,7 +160,7 @@ const Dashboard = () => {
           ))}
         </Box>
         <Box
-          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main' }}
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={colors.boxColor.main}
@@ -208,7 +208,7 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
-          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main' }}
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.boxColor.main}
@@ -242,7 +242,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main' }}
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.boxColor.main}

@@ -20,7 +20,7 @@ const CaloriesChart = ({chartData}) => {
     margin={{ top: 50, right: 50, bottom: 50, left: 60 }}
     padding={0.3}
     colors={{ scheme: 'category10' }}
-    labelTextColor={{ from: 'color', modifiers: [['darker', 1.6]] }}
+    labelTextColor={colors.headingColor.main} 
     animate={true}
     motionStiffness={90}
     motionDamping={15}
