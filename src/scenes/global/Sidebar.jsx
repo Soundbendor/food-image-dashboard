@@ -5,7 +5,8 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
-import MealSpotterLogo from  "../../assets/mealspotter.svg";
+import MealSpotterLogoDarkMode from "../../assets/mealspotterdarkmode.svg";
+import MealSpotterLogoLightMode from "../../assets/mealspotterlightmode.svg";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -13,6 +14,7 @@ import HealingOutlinedIcon from '@mui/icons-material/HealingOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { mockDataTeam } from "../../data/mockData";
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -41,8 +43,10 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
+
         "& .pro-sidebar-inner": {
-          background: `${colors.boxColor.main} !important`,
+          background: `${colors.sidebarColor.main} !important`,
+
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -51,10 +55,10 @@ const Sidebar = () => {
           padding: "5px 35px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
-          color: "#D73F09 !important",
+          color: "#F97B22 !important",
         },
         "& .pro-menu-item.active": {
-          color: "#D73F09 !important",
+          color: "#F97B22 !important",
         },
       }}
     >
@@ -66,7 +70,7 @@ const Sidebar = () => {
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: "10px 0 20px 0",
-              color: colors.boxColor.main,
+              color: colors.sidebarColor.main,
             }}
           >
             {!isCollapsed && (
@@ -76,9 +80,15 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-      
-                <img src={MealSpotterLogo} alt="mealspotter.svg" width="90%" />
-                
+
+                <div>
+                  {theme.palette.mode === "dark" ? (
+                    <img src={MealSpotterLogoDarkMode} alt="mealspotter.svg" width="90%" />
+                  ) : (
+                    <img src={MealSpotterLogoLightMode} alt="mealspotter.svg" width="90%" />
+                  )}
+                </div>
+
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -89,7 +99,7 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
-      
+
                 <img
                   alt="profile-user"
                   width="100px"
@@ -98,16 +108,16 @@ const Sidebar = () => {
                   src={`../../assets/user.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
-            
+
               </Box>
               <Box textAlign="center">
                 <Typography
-                  variant="h2"
-                  color = {colors.headingColor.main}
+                  variant="h4"
+                  color={colors.headingColor.main}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                Jon Snow
+                  Jon Snow
                 </Typography>
                 <Typography variant="h5" color={colors.headingColor.main}>
                   Nutritionist
@@ -154,7 +164,14 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            
+            <Item
+              title="About Us"
+              to="/about"
+              icon={<PeopleAltIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
           </Box>
         </Menu>
       </ProSidebar>

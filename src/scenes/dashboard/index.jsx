@@ -1,34 +1,31 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
-import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
-import React,{useState,useEffect} from 'react'
+import CaloriesChart from "../../components/CaloriesChart";
+import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [userList,setUserList]=useState([]);
-  const [foodList,setFoodList]=useState([]);
-  
-  useEffect(()=>{
-    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUsers").then((data)=>{
+  const [userList, setUserList] = useState([]);
+  const [foodList, setFoodList] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUsers").then((data) => {
       console.log(data)
       setUserList(data.data)
     });
-    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getFoods").then((data)=>{
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getFoods").then((data) => {
       console.log(data)
       setFoodList(data.data)
     });
-  },[]);
-  
+  }, []);
+
   console.log(userList);
   console.log(foodList);
 
@@ -37,25 +34,31 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center" >
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard!" color={colors.headingColor.main}/>
+        <Typography
+          color={colors.headingColor.main}
+          variant="h2"
+          fontWeight="600"
+        >
+          DASHBOARD
+        </Typography>
 
         <Box>
-	  <a style={{ 'text-decoration': 'none' }} href="../addmeal">
-          <Button
-            sx={{
-              backgroundColor: colors.boxColor.main,
-              color: colors.headingColor.main,
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            
-            <AddCircleOutlineIcon sx={{ mr: "10px" }} />
-            Add a Meal
-            
-          </Button>
-	  </a>
+          <a style={{ 'text-decoration': 'none' }} href="../addmeal">
+            <Button
+              sx={{
+                backgroundColor: colors.boxColor.main,
+                color: colors.headingColor.main,
+                fontSize: "14px",
+                fontWeight: "bold",
+                padding: "10px 20px",
+              }}
+            >
+
+              <AddCircleOutlineIcon sx={{ mr: "10px" }} />
+              Add a Meal
+
+            </Button>
+          </a>
         </Box>
       </Box>
 
@@ -69,12 +72,13 @@ const Dashboard = () => {
       >
         {/* ROW 1 */}
         <Box
-          
-          gridColumn="span 4"
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
+          gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
           display="flex"
           alignItems="center"
           justifyContent="center"
+
         >
           <StatBox
             title={userList.length}
@@ -86,19 +90,19 @@ const Dashboard = () => {
             }
           />
         </Box>
-        
+
         <Box
-        
-          gridColumn="span 4"
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
+          gridColumn="span 6"
           backgroundColor={colors.boxColor.main}
-          
+
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
           <StatBox
             title={foodList.length}
-            
+
             subtitle="Meals in Database"
             icon={
               <FastfoodIcon
@@ -107,30 +111,11 @@ const Dashboard = () => {
             }
           />
         </Box>
-        
-        
-        <Box
-          gridColumn="span 4"
-          backgroundColor={colors.boxColor.main}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="61"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.headingColor.main, fontSize: "26px" }}
-              />
-            }
-          />
-        </Box>
+
         {/* ROW 2 */}
-        
+
         <Box
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={colors.boxColor.main}
@@ -141,14 +126,14 @@ const Dashboard = () => {
             justifyContent="space-between"
             alignItems="center"
             borderBottom={`4px solid ${colors.headingColor.main}`}
-            colors={colors.grey[100]}
+            colors={colors.headingColor.main}
             p="15px"
           >
             <Typography color={colors.headingColor.main} variant="h5" fontWeight="600">
               Your Patient List
             </Typography>
           </Box>
-          
+
           {userList.map((patients, i) => (
             <Box
               key={`${patients.UserID}`}
@@ -175,12 +160,14 @@ const Dashboard = () => {
           ))}
         </Box>
         <Box
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 3"
           backgroundColor={colors.boxColor.main}
           overflow="auto"
         >
           <Box
+
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -192,7 +179,7 @@ const Dashboard = () => {
               Meals List
             </Typography>
           </Box>
-          
+
           {foodList.map((meals, i) => (
             <Box
               key={`${meals.FoodName}`}
@@ -221,6 +208,7 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.boxColor.main}
@@ -254,6 +242,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
           gridRow="span 2"
           backgroundColor={colors.boxColor.main}
@@ -267,9 +256,18 @@ const Dashboard = () => {
             Calories of Food
           </Typography>
           <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true} />
+            <CaloriesChart
+              chartData={[
+                { food: 'Pizza', calories: 285 },
+                { food: 'Hamburger', calories: 354 },
+                { food: 'Salad', calories: 85 },
+                { food: 'Fried Chicken', calories: 310 },
+                { food: 'Spaghetti', calories: 221 },
+              ]}
+            />
+
           </Box>
-        </Box> 
+        </Box>
       </Box>
     </Box>
   );

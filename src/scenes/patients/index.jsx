@@ -1,4 +1,5 @@
-import { Box } from "@mui/material";
+import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { tokens } from "../../theme";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { mockDataPatients } from "../../data/mockData";
 import Header from "../../components/Header";
@@ -6,6 +7,8 @@ import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 
 const Patients = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const columns = [
     { field: "UserID", 
     headerName: "ID", 
@@ -54,9 +57,13 @@ const Patients = () => {
 
   return (
     <Box m="20px">
-      <Header
-        title="Patients"
-      />
+      <Typography
+        color={colors.headingColor.main}
+        variant="h2"
+        fontWeight="600"
+      >
+        Patients
+      </Typography>
       <Box
         m="40px 0 0 0"
         height="75vh"

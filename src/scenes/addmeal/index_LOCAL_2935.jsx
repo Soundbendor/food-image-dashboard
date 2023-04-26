@@ -84,13 +84,7 @@ const AddMeal = () => {
   }
 	return (
 	<>
-	 <Box m="10px"
-   sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
-             backgroundColor={colors.boxColor.main}
-             display="flex"
-             alignItems="center"
-             justifyContent="center"
-           >
+    <Box m="20px">
       <Header
         title="Add a Meal"
 	subtitle="Use this page to add a meal to your account"
@@ -109,19 +103,19 @@ const AddMeal = () => {
       
     <MealPortionList mealPortions={mealPortions} changeSelect={changeSelect} changeServings={changeServings}/>
     <Box display="flex">
-    <Box m="10px"
-      width="150px"
-      height="60px"
+    <Box m="20px"
+      width="200px"
+      height="80px"
       backgroundColor={colors.boxColor.main}>
-      <Button onClick={handleAddPortion} sx={{ width: 1, height: 1, borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}>
+      <Button onClick={handleAddPortion} sx={{ width: 1, height: 1 , "font-size": "20px", color: colors.headingColor.main}}>
 	Add another Item
         <AddCircleOutlineIcon sx={{ mr: "5px", ml: "10px" }} />
 
       </Button>
     </Box>
-    <Box m="10px"
-      width="150px"
-      height= "60px"
+    <Box m="20px"
+      width="200px"
+      height= "80px"
       backgroundColor={colors.boxColor.main}
       sx={{
 	'&:hover': {

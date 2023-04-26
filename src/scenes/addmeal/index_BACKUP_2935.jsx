@@ -84,6 +84,9 @@ const AddMeal = () => {
   }
 	return (
 	<>
+<<<<<<< HEAD
+    <Box m="20px">
+=======
 	 <Box m="10px"
    sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
              backgroundColor={colors.boxColor.main}
@@ -91,6 +94,7 @@ const AddMeal = () => {
              alignItems="center"
              justifyContent="center"
            >
+>>>>>>> 236ccc78f11d9efc1d97c8728f874867ed6ebb6c
       <Header
         title="Add a Meal"
 	subtitle="Use this page to add a meal to your account"
@@ -109,25 +113,43 @@ const AddMeal = () => {
       
     <MealPortionList mealPortions={mealPortions} changeSelect={changeSelect} changeServings={changeServings}/>
     <Box display="flex">
+<<<<<<< HEAD
+    <Box m="20px"
+      width="200px"
+      height="80px"
+      backgroundColor={colors.boxColor.main}>
+      <Button onClick={handleAddPortion} sx={{ width: 1, height: 1 , "font-size": "20px", color: colors.headingColor.main}}>
+=======
     <Box m="10px"
       width="150px"
       height="60px"
       backgroundColor={colors.boxColor.main}>
       <Button onClick={handleAddPortion} sx={{ width: 1, height: 1, borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}>
+>>>>>>> 236ccc78f11d9efc1d97c8728f874867ed6ebb6c
 	Add another Item
         <AddCircleOutlineIcon sx={{ mr: "5px", ml: "10px" }} />
 
       </Button>
     </Box>
+<<<<<<< HEAD
+    <Box m="20px"
+      width="200px"
+      height= "80px"
+=======
     <Box m="10px"
       width="150px"
       height= "60px"
+>>>>>>> 236ccc78f11d9efc1d97c8728f874867ed6ebb6c
       backgroundColor={colors.boxColor.main}
       sx={{
 	'&:hover': {
 	  backgroundColor: 'green'
 	}, }}>
+<<<<<<< HEAD
 	<Button sx={{ width: 1, height: 1, "font-size": "20px", color: colors.headingColor.main}} onClick={submit}>
+=======
+	<Button sx={{ width: 1, height: 1, borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px'  }} onClick={submit}>
+>>>>>>> 236ccc78f11d9efc1d97c8728f874867ed6ebb6c
 	Submit
 	<CheckCircleOutlineIcon sx={{ mr:"5px", ml: "5px" }} />
 	</Button>

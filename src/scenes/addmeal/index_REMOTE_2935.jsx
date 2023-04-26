@@ -8,7 +8,6 @@ import Header from "../../components/Header";
 import MealPortionList from './mealPortionList';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import {useNavigate} from 'react-router-dom';
-import FormData from 'form-data';
 
 const AddMeal = () => {
   const theme = useTheme();
@@ -34,22 +33,6 @@ const AddMeal = () => {
     })
     numPortions = numPortions + 1;
   }
-
-  function onImageUpload(e) {
-    let image = new FormData();
-    image.append('file', e.target.file, e.target.file.name);
-    console.log("Got Image!");
-    /*Axios.post("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/detectFood",
-      image,
-      headers: {
-	'accept': 'application/json',
-	'Accept-Language': 'en-US,en;q=0.8',
-	'Content-Type': `multipart/form-data; bondary=${image._boundary}`,
-      }
-    ).then((response) => {
-	    console.log(response);
-    }); */
-  } 
 
   function changeSelect(id, newSelect) {
     const newPorts = [...mealPortions]
@@ -93,20 +76,8 @@ const AddMeal = () => {
            >
       <Header
         title="Add a Meal"
-	subtitle="Use this page to add a meal to your account"
-	color={colors.headingColor.main}
-	sx={{"ml": "30px"}}>
-      </Header>
+      />
     </Box>
-    <Box m="20px"
-      p="10px"
-      width="300px"
-      backgroundColor={colors.boxColor.main}>
-      *BETA* Try our Food Detector AI
-      <br />
-      <input type="file" accept="image/*" onChange={onImageUpload} />
-    </Box>
-      
     <MealPortionList mealPortions={mealPortions} changeSelect={changeSelect} changeServings={changeServings}/>
     <Box display="flex">
     <Box m="10px"
@@ -127,7 +98,7 @@ const AddMeal = () => {
 	'&:hover': {
 	  backgroundColor: 'green'
 	}, }}>
-	<Button sx={{ width: 1, height: 1, "font-size": "20px", color: colors.headingColor.main}} onClick={submit}>
+	<Button sx={{ width: 1, height: 1, borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px'  }} onClick={submit}>
 	Submit
 	<CheckCircleOutlineIcon sx={{ mr:"5px", ml: "5px" }} />
 	</Button>
