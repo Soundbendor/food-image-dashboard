@@ -5,7 +5,8 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
-import MealSpotterLogo from  "../../assets/mealspotter.svg";
+import MealSpotterLogoDarkMode from "../../assets/mealspotterdarkmode.svg";
+import MealSpotterLogoLightMode from "../../assets/mealspotterlightmode.svg";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -42,10 +43,10 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
-        
+
         "& .pro-sidebar-inner": {
           background: `${colors.sidebarColor.main} !important`,
-  
+
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -79,9 +80,15 @@ const Sidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-      
-                <img src={MealSpotterLogo} alt="mealspotter.svg" width="90%" />
-                
+
+                <div>
+                  {theme.palette.mode === "dark" ? (
+                    <img src={MealSpotterLogoDarkMode} alt="mealspotter.svg" width="90%" />
+                  ) : (
+                    <img src={MealSpotterLogoLightMode} alt="mealspotter.svg" width="90%" />
+                  )}
+                </div>
+
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
                 </IconButton>
@@ -92,7 +99,7 @@ const Sidebar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
-      
+
                 <img
                   alt="profile-user"
                   width="100px"
@@ -101,16 +108,16 @@ const Sidebar = () => {
                   src={`../../assets/user.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
-            
+
               </Box>
               <Box textAlign="center">
                 <Typography
                   variant="h4"
-                  color = {colors.headingColor.main}
+                  color={colors.headingColor.main}
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                Jon Snow
+                  Jon Snow
                 </Typography>
                 <Typography variant="h5" color={colors.headingColor.main}>
                   Nutritionist
@@ -160,11 +167,11 @@ const Sidebar = () => {
             <Item
               title="About Us"
               to="/about"
-              icon={<PeopleAltIcon/>}
+              icon={<PeopleAltIcon />}
               selected={selected}
               setSelected={setSelected}
             />
-            
+
           </Box>
         </Menu>
       </ProSidebar>

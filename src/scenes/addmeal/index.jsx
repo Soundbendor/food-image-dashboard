@@ -68,7 +68,8 @@ const AddMeal = () => {
 	return (
 	<>
 	 <Box m="10px"
-             backgroundColor={colors.primary[400]}
+   sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
+             backgroundColor={colors.boxColor.main}
              display="flex"
              alignItems="center"
              justifyContent="center"
@@ -82,8 +83,8 @@ const AddMeal = () => {
     <Box m="10px"
       width="150px"
       height="60px"
-      backgroundColor={colors.primary[400]}>
-      <Button onClick={handleAddPortion} sx={{ width: 1, height: 1 }}>
+      backgroundColor={colors.boxColor.main}>
+      <Button onClick={handleAddPortion} sx={{ width: 1, height: 1, borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}>
 	Add another Item
         <AddCircleOutlineIcon sx={{ mr: "5px", ml: "10px" }} />
 
@@ -92,12 +93,12 @@ const AddMeal = () => {
     <Box m="10px"
       width="150px"
       height= "60px"
-      backgroundColor={colors.primary[400]}
+      backgroundColor={colors.boxColor.main}
       sx={{
 	'&:hover': {
 	  backgroundColor: 'green'
 	}, }}>
-	<Button sx={{ width: 1, height: 1 }} onClick={submit}>
+	<Button sx={{ width: 1, height: 1, borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px'  }} onClick={submit}>
 	Submit
 	<CheckCircleOutlineIcon sx={{ mr:"5px", ml: "5px" }} />
 	</Button>

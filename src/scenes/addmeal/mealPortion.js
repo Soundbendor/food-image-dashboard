@@ -17,7 +17,7 @@ export default function MealPortion({ mealPortion, changeSelect, changeServings 
   return (
     <Box m="10px"
       p="10px"
-      backgroundColor={colors.primary[400]}
+      backgroundColor={colors.boxColor.main}
       display="flex"
       width="380px">
       <label style={{ color: "black", marginTop: "9px" }}>
