@@ -1,4 +1,4 @@
-import MealSpotterLogo from  "../../assets/mealspotter.svg";
+import MealSpotterLogo from  "../../assets/mealspotterdarkmode.svg";
 import React from "react";
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -40,7 +40,7 @@ return (
                         <h1 class="name"> Jayson Kildea </h1>
                         <h2 class = "role"> Back-end Development / Full-stack Communication</h2>
                         <h2 class = "contact">kildeaj@oregonstate.edu</h2>
-                        <p class="intro"> Set up system components using AWS, including the Web server, Middleware server, & Database. Developed methodology & implementation for full-stack communication.</p>
+                        <p class="intro"> Set up system components using AWS, including the Web server, Middleware server, and Database. Developed methodology and implementation for full-stack communication.</p>
                     </div>
 
                 </Grid>
