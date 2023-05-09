@@ -29,7 +29,7 @@ function App() {
         <CssBaseline />
         <div className="app">
           {showSidebar && <Sidebar isSidebar={isSidebar} />}
-          <main className="content">
+          <main className="content" style={{ flexGrow: 1, paddingLeft: "300px" }}>
             {showSidebar && <Topbar setIsSidebar={setIsSidebar} />}
             <Routes>
               <Route path="/" element={<Login/>} />
