@@ -6,6 +6,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import LineChart from "../../components/LineChart";
 import StatBox from "../../components/StatBox";
 import CaloriesChart from "../../components/CaloriesChart";
+import PieChart from "../../components/PieChart";
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 
@@ -263,6 +264,32 @@ const Dashboard = () => {
                 { food: 'Salad', calories: 85 },
                 { food: 'Fried Chicken', calories: 310 },
                 { food: 'Spaghetti', calories: 221 },
+              ]}
+            />
+
+          </Box>
+        </Box>
+        {/* ROW 4 */}
+        <Box
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
+          gridColumn="span 4"
+          gridRow="span 2"
+          backgroundColor={colors.boxColor.main}
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            color={colors.headingColor.main}
+            sx={{ padding: "30px 30px 0 30px" }}
+          >
+            Patient Location
+          </Typography>
+          <Box height="250px" mt="-20px">
+            <PieChart
+              pieData={[
+                { id: 'Central', value: 10 },
+                { id: 'Pacific', value: 13 },
+                { id: 'Southwest', value: 4 },
               ]}
             />
 

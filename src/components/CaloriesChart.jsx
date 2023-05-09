@@ -1,16 +1,22 @@
 import { useTheme } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
 import { tokens } from "../theme";
-const data = [
-    { food: 'Pizza', calories: 285 },
-    { food: 'Hamburger', calories: 354 },
-    { food: 'Salad', calories: 85 },
-    { food: 'Fried Chicken', calories: 310 },
-    { food: 'Spaghetti', calories: 221 },
-  ]
+
 const CaloriesChart = ({chartData}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const axisTheme = {
+    axis: {
+      textColor: colors.headingColor.main,
+      fontSize: '14px',
+      tickColor: colors.headingColor.main,
+    },
+    grid: {
+      stroke: colors.headingColor.main,
+      strokeWidth: 1
+    },
+  };
 
   return (
     <ResponsiveBar
@@ -42,6 +48,7 @@ const CaloriesChart = ({chartData}) => {
     }}
     enableGridX={true}
     enableGridY={true}
+    theme={axisTheme}
   />
   );
 };
