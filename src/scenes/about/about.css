@@ -1,0 +1,106 @@
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px;
+    width: 50%;
+}
+
+.about span{
+    font-size: x-large;
+    color:black;
+    font-weight: bolder;
+}
+
+p{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: larger;
+}
+
+.intro{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+    color: black;
+}
+
+h1{
+    font-family: 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+
+}
+
+.team{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.name{
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #D73F09;
+    font-size:30px;
+    opacity: 1;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight:1000;
+}
+
+.member{
+    /* background-color: grey; */
+    border-radius: 10%;
+    border-width: 10px ;
+    border-color: black;
+    /* background-color:rgba(0, 0, 0, 0.5); */
+}
+
+.role{
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-top:0;
+    font-size: smaller;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.contact{
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-top:0;
+    font-size: smaller;
+    color: white;
+    font-weight: lighter;
+}
+
+.team-grid{
+    background-color: rgba(77, 76, 80, 0.5);
+}
+
+.column{
+    float:left;
+    width:50%;
+    align-items: center;
+}
+
+.icon{
+    color:aqua;
+    text-align: center;
+    padding: auto;
+}
+
+.footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.info{
+    margin:0;
+    color:black;
+    font-weight: lighter;
+}
