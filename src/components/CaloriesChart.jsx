@@ -5,16 +5,30 @@ import { tokens } from "../theme";
 const CaloriesChart = ({ chartData }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const customTheme = {
+    axis: {
+      legend: {
+        text: {
+          fill: colors.headingColor.main,
+        },
+      },
+      ticks: {
+        text: {
+          fill: colors.headingColor.main,
+        },
+      },
+    },
+  };
   return (
     <ResponsiveBar
       data={chartData}
+      theme={customTheme}
       keys={['calories']}
       indexBy="food"
       margin={{ top: 50, right: 50, bottom: 50, left: 60 }}
       padding={0.3}
       colors={{ scheme: 'category10' }}
-      labelTextColor={colors.headingColor.main} 
+      labelTextColor={colors.headingColor.main}
       animate={true}
       motionStiffness={90}
       motionDamping={15}
@@ -25,12 +39,6 @@ const CaloriesChart = ({ chartData }) => {
         legend: 'Food',
         legendPosition: 'middle',
         legendOffset: 32,
-        style: {
-          text: {
-            fill: colors.headingColor.main,
-            fontSize: '14px',
-          },
-        },
       }}
       axisLeft={{
         tickSize: 5,
@@ -39,12 +47,6 @@ const CaloriesChart = ({ chartData }) => {
         legend: 'Calories',
         legendPosition: 'middle',
         legendOffset: -40,
-        style: {
-          text: {
-            fill: colors.headingColor.main,
-            fontSize: '14px',
-          },
-        },
       }}
       enableGridX={true}
       enableGridY={true}

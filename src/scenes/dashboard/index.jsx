@@ -314,7 +314,7 @@ const Dashboard = () => {
             <CalendarChart
               calendarData={[
                 {
-                  "value": 299,
+                  "value": 29,
                   "day": "2023-12-1"
                 }
               ]}
