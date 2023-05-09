@@ -118,7 +118,7 @@ const Dashboard = () => {
         <Box
           sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
-          gridRow="span 3"
+          gridRow="span 2"
           backgroundColor={colors.boxColor.main}
           overflow="auto"
         >
@@ -126,7 +126,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.headingColor.main}`}
+            borderBottom={`1px solid ${colors.headingColor.main}`}
             colors={colors.headingColor.main}
             p="15px"
           >
@@ -163,7 +163,7 @@ const Dashboard = () => {
         <Box
           sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
           gridColumn="span 6"
-          gridRow="span 3"
+          gridRow="span 2"
           backgroundColor={colors.boxColor.main}
           overflow="auto"
         >
@@ -172,7 +172,7 @@ const Dashboard = () => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            borderBottom={`4px solid ${colors.headingColor.main}`}
+            borderBottom={`1px solid ${colors.headingColor.main}`}
             colors={colors.headingColor.main}
             p="15px"
           >
