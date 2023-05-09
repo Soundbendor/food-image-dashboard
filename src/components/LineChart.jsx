@@ -6,43 +6,29 @@ import { mockLineData as data } from "../data/mockData";
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const customTheme = {
+    axis: {
+      legend: {
+        text: {
+          fill: colors.headingColor.main,
+        },
+      },
+      ticks: {
+        text: {
+          fill: colors.headingColor.main,
+        },
+      },
+    },
+    legends: {
+      text: {
+        fill: colors.headingColor.main,
+      }
+    }
+  };
   return (
     <ResponsiveLine
       data={data}
-      theme={{
-        axis: {
-          domain: {
-            line: {
-              stroke: colors.grey[100],
-            },
-          },
-          legend: {
-            text: {
-              fill: colors.grey[100],
-            },
-          },
-          ticks: {
-            line: {
-              stroke: colors.grey[100],
-              strokeWidth: 1,
-            },
-            text: {
-              fill: colors.grey[100],
-            },
-          },
-        },
-        legends: {
-          text: {
-            fill: colors.grey[100],
-          },
-        },
-        tooltip: {
-          container: {
-            color: colors.primary[500],
-          },
-        },
-      }}
+      theme={customTheme}
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
       xScale={{ type: "point" }}
