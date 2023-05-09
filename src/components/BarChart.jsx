@@ -2,7 +2,7 @@ import { ResponsiveBar } from "@nivo/bar";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 
-const CaloriesChart = ({ chartData }) => {
+const BarChart = ({xAxisName, yAxisName, chartData }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const customTheme = {
@@ -24,7 +24,7 @@ const CaloriesChart = ({ chartData }) => {
       data={chartData}
       theme={customTheme}
       keys={['calories']}
-      indexBy="food"
+      indexBy='food'
       margin={{ top: 50, right: 50, bottom: 50, left: 60 }}
       padding={0.3}
       colors={{ scheme: 'category10' }}
@@ -36,7 +36,7 @@ const CaloriesChart = ({ chartData }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'Food',
+        legend: xAxisName,
         legendPosition: 'middle',
         legendOffset: 32,
       }}
@@ -44,7 +44,7 @@ const CaloriesChart = ({ chartData }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'Calories',
+        legend: yAxisName,
         legendPosition: 'middle',
         legendOffset: -40,
       }}
@@ -54,4 +54,4 @@ const CaloriesChart = ({ chartData }) => {
   );
 };
 
-export default CaloriesChart;
+export default BarChart;

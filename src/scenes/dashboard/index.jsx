@@ -5,7 +5,7 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import LineChart from "../../components/LineChart";
 import StatBox from "../../components/StatBox";
-import CaloriesChart from "../../components/CaloriesChart";
+import BarChart from "../../components/BarChart";
 import PieChart from "../../components/PieChart";
 import CalendarChart from "../../components/CalendarChart";
 import React, { useState, useEffect } from 'react'
@@ -258,7 +258,9 @@ const Dashboard = () => {
             Calories of Food
           </Typography>
           <Box height="250px" mt="-20px">
-            <CaloriesChart
+            <BarChart
+            xAxisName={"Food"}
+            yAxisName={"Calories"}
               chartData={[
                 { food: 'Pizza', calories: 285 },
                 { food: 'Hamburger', calories: 354 },
