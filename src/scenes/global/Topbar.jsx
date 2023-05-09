@@ -12,18 +12,17 @@ const Topbar = () => {
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
 
-
-      {/* ICONS */}
-      <Box display="flex">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton>
-      </Box>
-    </Box>
+  {/* ICONS */ }
+  < Box display = "flex" >
+    <IconButton onClick={colorMode.toggleColorMode}>
+      {theme.palette.mode === "dark" ? (
+        <DarkModeOutlinedIcon />
+      ) : (
+        <LightModeOutlinedIcon />
+      )}
+    </IconButton>
+</Box >
+    </Box >
   );
 };
 

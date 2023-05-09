@@ -7,6 +7,7 @@ import LineChart from "../../components/LineChart";
 import StatBox from "../../components/StatBox";
 import CaloriesChart from "../../components/CaloriesChart";
 import PieChart from "../../components/PieChart";
+import CalendarChart from "../../components/CalendarChart";
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 
@@ -290,6 +291,32 @@ const Dashboard = () => {
                 { id: 'Central', value: 10 },
                 { id: 'Pacific', value: 13 },
                 { id: 'Southwest', value: 4 },
+              ]}
+            />
+
+          </Box>
+        </Box>
+        <Box
+          sx={{ borderBottom: 3, borderRight: 5, borderColor: 'primary.main', borderRadius: '13px' }}
+          gridColumn="span 8"
+          gridRow="span 2"
+          backgroundColor={colors.boxColor.main}
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            color={colors.headingColor.main}
+            sx={{ padding: "30px 30px 0 30px" }}
+          >
+            Daily Food Data Collected
+          </Typography>
+          <Box height="250px" mt="-20px">
+            <CalendarChart
+              calendarData={[
+                {
+                  "value": 299,
+                  "day": "2023-12-1"
+                }
               ]}
             />
 
