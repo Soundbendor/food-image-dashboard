@@ -6,9 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { Link, useNavigate } from "react-router-dom";
 import moment from 'moment';
 import CreateIcon from '@mui/icons-material/Create';
-import Axios from 'axios'
-		
-
+import Axios from 'axios'	
 export const Register = (props) => {
 
     const text={color:"white"}
@@ -31,15 +29,19 @@ export const Register = (props) => {
     
     const register = (e) => {
         e.preventDefault();	
+	console.log(birth)
 	const date = moment(birth).format("YYYY-MM-DD")
 	console.log(date)
-	if (!name.trim() || !email.trim() || !pass.trim() || !fname.trim() || !lname.trim() || !age.trim() || !city.trim() || !state.trim() || !date.trim()) {
+	if (!name.trim() || !email.trim() || !pass.trim() || !fname.trim() || !lname.trim() || !age.trim() || !city.trim() || !state.trim()) {
                  setRegisterStatus("Fill out all the boxes")
             } else if (!isNaN(+age) === false){
-		setRegisterStatus("Age is not corrected")
+		setRegisterStatus("Age is not correct")
 	}else if (!isNaN(+phone) === false){
 		setRegisterStatus("Enter number for phone number")
-	}else{
+	}else if(moment(birth).isValid() !== true){
+                setRegisterStatus("Enter your birthday")
+	
+    }else{
 		    console.log(date)
         Axios.post("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/register", {
             username: name,
@@ -86,8 +88,8 @@ export const Register = (props) => {
 	     <TextField label='Phone Number' value={phone} onChange={(e) => setPhone(e.target.value)} type="phone" variant="filled" fullWidth required/>
 
 		 <LocalizationProvider dateAdapter={AdapterDayjs}>
-		<DatePicker label='Choose your birthday' value={birth} onChange={(e) => setBirth(e.target.value)} type="birth" slotProps={{ textField: { fullWidth: true, variant: 'filled' } }} sx={{svg: 'grey', label: 'grey'}}/>
-	    	</LocalizationProvider>
+<DatePicker label='Choose your birthday' value={birth} onChange={(e) => setBirth(e)} type="birth" slotProps={{ textField: { fullWidth: true, variant: 'filled' } }} sx={{svg: 'grey', label: 'grey'}}/>	
+	    </LocalizationProvider>
 	    </Grid>
 		</Grid>
 	    <p style={{color: 'red', marginTop: "10px"}}>{registerStatus}</p>

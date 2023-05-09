@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Grid,Paper, Avatar, TextField, Button, Typography} from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,6 +15,9 @@ const Login=(props)=>{
     const [pass, setPass] = useState('');
     const [loginStatus, setLoginStatus] = useState('');
     const navigate = useNavigate();
+
+     //Axios.defaults.withCredentials = true;
+
     const login = (e) => {
         e.preventDefault();
         Axios.post("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/login", {
@@ -29,6 +32,14 @@ const Login=(props)=>{
             }
         })
     }
+    useEffect(() =>{
+    	Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/login").then((response) => {
+	if (response.data.loggedInd === true){
+
+	console.log(response.data.user[0].username);
+	}
+	})
+    }, [])
 
     return(
         <Grid>

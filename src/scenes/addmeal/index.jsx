@@ -15,6 +15,7 @@ const AddMeal = () => {
   const colors = tokens(theme.palette.mode);
   const [mealPortions, setMealPortions] = useState([])
   const [mealOptions, setMealOptions] = useState([])
+  const [image, setImage] = useState([]);
   const navigate = useNavigate();
   var numPortions = mealPortions.length;
 
@@ -35,20 +36,36 @@ const AddMeal = () => {
     numPortions = numPortions + 1;
   }
 
-  function onImageUpload(e) {
-    let image = new FormData();
-    image.append('file', e.target.file, e.target.file.name);
-    console.log("Got Image!");
-    /*Axios.post("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/detectFood",
-      image,
-      headers: {
-	'accept': 'application/json',
-	'Accept-Language': 'en-US,en;q=0.8',
-	'Content-Type': `multipart/form-data; bondary=${image._boundary}`,
-      }
+  function onImageSubmit(e) {
+    let AIdata = new FormData();
+    let urlResponse = ""
+    AIdata.append('img_file', image);
+    Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getAIURL",
     ).then((response) => {
-	    console.log(response);
-    }); */
+      urlResponse = response.data
+      const url = "https://" + urlResponse + ".ngrok-free.app/api/model/detect?img_name=unknown.jpg&leftovers=false"
+      console.log(url)
+      const APIKey = "Capstone-Team"
+      const Auth = "Basic dGFjb0RldGVjdG9yOkJvd3RpZVBhc3RhQW5kTWVhdGJhbGxz"
+      const Login  = { Username: "tacoDetector", Password: "BowtiePastaAndMeatballs" }
+      Axios.post(url, AIdata, 
+        {
+       	  headers: {
+	    'Content-Type': 'multipart/form-data',
+	    'token': APIKey,
+	    'Authorization': Auth,
+	    'accept': 'application/json',
+	    'Access-Control-Allow-Origin': '*',
+	    'method': 'post'
+	  }, 
+          timeout: 60000, withCredentials: true, 
+        }
+      ).then((response) => {
+       console.log(response)
+      });
+    }); 
+
+    
   } 
 
   function changeSelect(id, newSelect) {
@@ -104,7 +121,14 @@ const AddMeal = () => {
       backgroundColor={colors.boxColor.main}>
       *BETA* Try our Food Detector AI
       <br />
-      <input type="file" accept="image/*" onChange={onImageUpload} />
+        <input 
+	  type="file" 
+	  accept="image/*" 
+	  name="image"
+	  onChange={e => setImage(e.target.files[0])} />
+	<Button onClick={e => onImageSubmit(e)} sx={{ color: colors.headingColor.main }}>
+	  Detect Food
+	</Button>
     </Box>
       
     <MealPortionList mealPortions={mealPortions} changeSelect={changeSelect} changeServings={changeServings}/>
