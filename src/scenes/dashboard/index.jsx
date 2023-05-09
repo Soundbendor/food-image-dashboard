@@ -9,6 +9,7 @@ import BarChart from "../../components/BarChart";
 import PieChart from "../../components/PieChart";
 import CalendarChart from "../../components/CalendarChart";
 import React, { useState, useEffect } from 'react'
+import { mockLineData as lineData } from "../../data/mockData";
 import Axios from 'axios'
 
 const Dashboard = () => {
@@ -240,7 +241,7 @@ const Dashboard = () => {
             </Box>
           </Box>
           <Box height="250px" m="-20px 0 0 0">
-            <LineChart isDashboard={true} />
+            <LineChart isDashboard={true} lineData={lineData} />
           </Box>
         </Box>
         <Box

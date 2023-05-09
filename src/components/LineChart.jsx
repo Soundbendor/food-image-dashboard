@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
 import { mockLineData as data } from "../data/mockData";
 
-const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
+const LineChart = ({ isCustomLineColors = false, isDashboard = false, lineData }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const customTheme = {
@@ -27,7 +27,7 @@ const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   };
   return (
     <ResponsiveLine
-      data={data}
+      data={lineData}
       theme={customTheme}
       colors={isDashboard ? { datum: "color" } : { scheme: "nivo" }} // added
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
