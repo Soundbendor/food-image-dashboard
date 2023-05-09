@@ -7,12 +7,9 @@ import "./about.css"
 import { tokens } from "../../theme";
 import {useTheme } from "@mui/material";
 import Grid from '@mui/material/Grid';
-import Profile from "./profile.png"
+import Profile from "../../assets/profile.png"
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { IconButton } from '@mui/material';
-
-
-
 
 const About = () => {
 

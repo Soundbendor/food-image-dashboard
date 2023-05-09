@@ -8,7 +8,6 @@
 
 .about span{
     font-size: x-large;
-    color:black;
     font-weight: bolder;
 }
 
@@ -21,13 +20,12 @@ p{
     font-family: 'Trebuchet MS', sans-serif;
     font-size: 15px;
     font-weight: 100;
-    color: black;
+    
 }
 
 h1{
     font-family: 'Trebuchet MS', sans-serif;
     text-align: center;
-    color: black;
     font-size: 30px;
 
 }
@@ -52,7 +50,6 @@ h1{
     /* background-color: grey; */
     border-radius: 10%;
     border-width: 10px ;
-    border-color: black;
     /* background-color:rgba(0, 0, 0, 0.5); */
 }
 
@@ -101,6 +98,5 @@ h1{
 
 .info{
     margin:0;
-    color:black;
     font-weight: lighter;
 }
