@@ -7,7 +7,7 @@ Project Partner: Patrick Donnelly and Soundbendor Lab <br />
 Team Members: Luke Reynolds, Himanshu Dhir, Jayson Kildea, Chih-Yun Wu, Keith Reinhardt
 
 Programs/Tools: 
-ReactJS, MySQL, AWS
+ReactJS, SQL, AWS
 
 Based on dashboard design by: https://github.com/ed-roh/react-admin-dashboard
 
