@@ -3,7 +3,8 @@
 Oregon State University Capstone Project
 
 Authors:
-Food Image Dashboard Team
+Project Partner: Patrick Donnelly and Soundbendor Lab
+Team Members: Luke Reynolds, Himanshu Dhir, Jayson Kildea, Chih-Yun Wu, Keith Reinhardt
 
 Programs/Tools: 
 ReactJS, MySQL, AWS
