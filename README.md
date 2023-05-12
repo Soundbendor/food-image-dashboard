@@ -3,7 +3,7 @@
 Oregon State University Capstone Project
 
 Authors:
-Project Partner: Patrick Donnelly and Soundbendor Lab
+Project Partner: Patrick Donnelly and Soundbendor Lab <br />
 Team Members: Luke Reynolds, Himanshu Dhir, Jayson Kildea, Chih-Yun Wu, Keith Reinhardt
 
 Programs/Tools: 
