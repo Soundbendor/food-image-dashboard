@@ -1,12 +1,11 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import { styled } from '@mui/material/styles';
-import Header from "../../components/Header";
-import { mockDataTeam } from "../../data/mockData";
 import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
+import P_img from "../../assets/profile.png"
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -18,11 +17,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const Profile = () => {
-  const [data] = React.useState(mockDataTeam);
-  const index = 0;
+  const userData = JSON.parse(localStorage.getItem('user'));
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
   const [userList,setUserList]=useState([]);
   
   useEffect(()=>{
@@ -38,15 +35,14 @@ const Profile = () => {
       <div className="container emp-profile" m="20px">
         <form method="">
           <div paddingLeft={10}>
-
           </div>
           <div className="col-md-2">
             <Box display="flex" justifyContent="center">
               <img
-                alt="profile-user"
                 width="200px"
                 height="200px"
-                src={"../../assets/user.jpg"}
+                src = {P_img}
+	  	alt="profile-user"
                 style={{ cursor: "pointer", borderRadius: "75%" }}
               />
             </Box>
@@ -57,7 +53,7 @@ const Profile = () => {
                 variant="h2"
                 fontWeight="600"
               >
-                {data[index].name}
+                <h1> {userData[0].FName} {userData[0].LName} </h1>
               </Typography>
                 
             </Box>
@@ -68,7 +64,6 @@ const Profile = () => {
                 variant="h5"
                 fontWeight="600"
               >
-                {data[index].title}
               </Typography>
             </Box>
             
@@ -79,25 +74,24 @@ const Profile = () => {
           <div className="col-md-6">
 
             <Grid margin={5} rowSpacing={1} container spacing={2}>
-              <Grid xs={4}>
-                <Item> Email: {data[index].email}</Item>
+	      <Grid xs={4}>
+                <Item>Username: {userData[0].UserName}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Age: {data[index].age}</Item>
+                <Item> Email: {userData[0].Email}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Birthday: {data[index].birthday}</Item>
+                <Item>Age: {userData[0].age}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Phone: {data[index].phone}</Item>
+                <Item>Birthday: {userData[0].Birthday.slice(0,10)}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Location: {data[index].city + ", " + data[index].state}</Item>
+                <Item>Phone: ({userData[0].PhoneNumber.slice(0,3)}){userData[0].PhoneNumber.slice(3)}</Item>
               </Grid>
               <Grid xs={4}>
-                <Item>Access: {data[index].access}</Item>
+                <Item>Location: {userData[0].City + ", " + userData[0].State}</Item>
               </Grid>
-              
             </Grid>
 
           </div>
@@ -105,21 +99,6 @@ const Profile = () => {
 
       </div>
     </>
-    // <Box m="20px">
-    // <Header title="Profile" subtitle="Your Account" />
-    // <Header title="default_user"/>
-    // <Box display="flex" justifyContent="left" alignItems="left">
-    //   <img
-    //       alt="profile-user"
-    //       width="300px"
-    //       height="300px"
-    //       src={`../../assets/user.jpg`}
-    //       style={{ cursor: "pointer", borderRadius: "75%" }}
-    //   />
-    //   </Box>
-    //     <Header title="Bio"/>
-
-    // </Box>
   );
 };
 

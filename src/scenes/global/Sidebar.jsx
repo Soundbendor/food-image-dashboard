@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
 import MealSpotterLogoDarkMode from "../../assets/mealspotterdarkmode.svg";
@@ -13,12 +13,22 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import HealingOutlinedIcon from '@mui/icons-material/HealingOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import { mockDataTeam } from "../../data/mockData";
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-
+import Profile from "../../assets/profile.png"
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+
+/*const PrivateRoute = ({ children }) => {
+        if(isAuthenticated === null){
+                return <Navigate to="/login" />;
+        }
+        else {
+                return children
+        }
+};*/
+
   return (
     <MenuItem
       active={selected === title}
@@ -36,11 +46,13 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 
 const Sidebar = () => {
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const colors = tokens(theme.palette.mode);  
+const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
-  const [data] = React.useState(mockDataTeam);
-  return (
+   const userData = JSON.parse(localStorage.getItem('user'));
+  const isAuthenticated = localStorage.getItem('loginStatus');
+	 if(isAuthenticated != null){
+	return (
     <Box
       sx={{
         position: "fixed",
@@ -110,7 +122,7 @@ const Sidebar = () => {
                   width="100px"
                   height="100px"
                   href="../profile"
-                  src={`../../assets/user.jpg`}
+                  src={Profile}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
 
@@ -122,10 +134,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Jon Snow
-                </Typography>
-                <Typography variant="h5" color={colors.headingColor.main}>
-                  Nutritionist
+		  {userData[0].FName} {userData[0].LName}
                 </Typography>
               </Box>
             </Box>
@@ -182,6 +191,9 @@ const Sidebar = () => {
       </ProSidebar>
     </Box>
   );
+	 } else{
+		 return <Navigate to="/login" />;
+	 }
 };
 
 export default Sidebar;

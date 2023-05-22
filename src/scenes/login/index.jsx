@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Grid,Paper, Avatar, TextField, Button, Typography} from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import { Link, useNavigate } from "react-router-dom";
 import Axios from 'axios'
 
 const Login=(props)=>{
 
-    const paperStyle={padding :20,height:'70vh',width:280, margin:"100px auto"}
+    const paperStyle={padding :20,height:'75vh',width:280, margin:"100px auto"}
     const avatarStyle={backgroundColor:'grey'}
     const text={color:"white"}
     const [name, setName] = useState('');
@@ -28,14 +26,17 @@ const Login=(props)=>{
                 setLoginStatus(response.data.message);
             }else{
                 setLoginStatus(response.data[0].name);
+		const loginStatus = "True" ;
                 navigate('/dashboardnpm')
-            }
-        })
-    }
+		localStorage.setItem('user', JSON.stringify(response.data));
+		localStorage.setItem('loginStatus',loginStatus);
+	    }
+	    })
+
+};
     useEffect(() =>{
     	Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/login").then((response) => {
 	if (response.data.loggedInd === true){
-
 	console.log(response.data.user[0].username);
 	}
 	})
@@ -50,19 +51,8 @@ const Login=(props)=>{
                 </Grid>
                 <TextField label='Username' value={name} onChange={(e) => setName(e.target.value)}type="username" variant="filled" fullWidth required/>
                 <TextField label='Password' value={pass} onChange={(e) => setPass(e.target.value)} type="password" variant="filled" fullWidth required/>
-                {/* <FormControlLabel
-                    control={
-                    <Checkbox
-                        name="checkedB"
-                        color="primary"
-                    />
-                    }
-                     label="Remember me"
-                 /> */}
-                {/* <Link to="/dashboardnpm"> */}
                     <Button type='submit' variant="contained" onClick = {login} fullWidth>Login</Button>
-                {/* </Link> */}
-                <h10 style={{color: 'red', marginTop: "10px"}}>{loginStatus}</h10>
+                <p style={{color: 'red', marginTop: "10px", fontSize: '13px'}}>{loginStatus}</p>
                 <Typography style={{marginTop: "10px"}}> 
                     <Link to = "/register"  style= {text}>
                         Sign Up 

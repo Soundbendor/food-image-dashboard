@@ -28,17 +28,18 @@ const Patients = () => {
         flex: 1,
         cellClassName: "name-column--cell",
     },
-    {
-      field: "UserName",
-      headerName: "Username",
+	      {
+      field: "City",
+      headerName: "City",
       headerAlign: "left",
       align: "left",
       cellClassName: "name-column--cell",
     },
-    {
-      field: "UserHash",
-      headerName: "Userhash",
-      flex: 1,
+	      {
+      field: "State",
+      headerName: "State",
+      headerAlign: "left",
+      align: "left",
       cellClassName: "name-column--cell",
     },
   ];

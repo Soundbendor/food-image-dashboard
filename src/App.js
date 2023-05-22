@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate} from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
@@ -22,7 +22,16 @@ function App() {
   location.pathname !== "/login" &&
   location.pathname !== "/" &&
   location.pathname !== "/register";
-
+  const isAuthenticated = localStorage.getItem('loginStatus');
+    
+const PrivateRoute = ({ children }) => {
+ 	if(isAuthenticated === null){
+		return <Navigate to="/login" />;
+	}
+	else {
+		return children
+	}
+};
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -35,14 +44,15 @@ function App() {
               <Route path="/" element={<Login/>} />
               <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />
-              <Route path="/dashboardnpm" element={<Dashboard />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/patients" element={<Patients />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/meals" element={<Meals />} />
-              <Route path="/addmeal" element={<AddMeal />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
+	      <Route path="/dashboardnpm" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
+              // <Route path="/dashboardnpm" element={<Dashboard />} />
+	  	<Route path="/profile" element={<PrivateRoute> <Profile /> </PrivateRoute>} />
+              <Route path="/patients" element={<PrivateRoute> <Patients /> </PrivateRoute>} />
+              <Route path="/calendar" element={<PrivateRoute> <Calendar /> </PrivateRoute>} />
+              <Route path="/meals" element={<PrivateRoute> <Meals /> </PrivateRoute>} />
+              <Route path="/addmeal" element={<PrivateRoute> <AddMeal /> </PrivateRoute>} />
+              <Route path="/about" element={<PrivateRoute> <About /> </PrivateRoute>} />
+	  </Routes>
           </main>
         </div>
       </ThemeProvider>

@@ -2,21 +2,26 @@ import React, { useState, useEffect } from 'react'
 import { Box, IconButton, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import HelpIcon from '@mui/icons-material/Help';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Fade from "@mui/material/Fade";
 import Axios from 'axios';
 
-export default function MealPortion({ mealPortion, changeSelect, changeServings }) {
+export default function MealPortion({ mealPortion, changeSelect, changeServings, removePortion }) {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [helpVisible, setHelpVisible] = useState(false);
   const [helpText, setHelpText] = useState("EMPTY");
   function handleFoodSelect(e) {
     const newSelect = e.target.value
+    console.log(newSelect)
     changeSelect(mealPortion.id, newSelect)
   }
   function handleServingInput(e) {
     const newServing = e.target.value
     changeServings(mealPortion.id, newServing)
+  }
+  function handleRemove(e) {
+    removePortion(mealPortion.id);
   }
   function handleHelpClick() {
     let currFood = mealPortion.value;
@@ -42,11 +47,11 @@ export default function MealPortion({ mealPortion, changeSelect, changeServings 
       p="10px"
       backgroundColor={colors.boxColor.main}
       display="flex"
-      width="400px"
+      width="460px"
       sx={{"marginLeft": "20px"}}>
       <label style={{ color: colors.headingColor.main, "fontSize": "20px"}}>
 	Select Food: 
-	<select defaultValue={mealPortion.options[0].FoodName} 
+	<select defaultValue={mealPortion.value} 
 	  onChange={handleFoodSelect}
 	  style={{ 
 	  ml: "50px",
@@ -72,6 +77,9 @@ export default function MealPortion({ mealPortion, changeSelect, changeServings 
 	  style={{ "fontSize": "15px" }}
 	  onChange={handleServingInput}/>
       </label>
+      <IconButton sx={{color: "red"}} onClick={handleRemove}>
+	  <HighlightOffIcon />
+      </IconButton>
     </Box>
       <Fade
 	in={helpVisible}

@@ -3,14 +3,16 @@ import { Grid,Paper, Avatar, TextField, Button, Typography, Box,} from '@mui/mat
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+//import DatePicker from 'react-datepicker'
 import { Link, useNavigate } from "react-router-dom";
+import validator from "validator";
 import moment from 'moment';
 import CreateIcon from '@mui/icons-material/Create';
 import Axios from 'axios'	
 export const Register = (props) => {
 
     const text={color:"white"}
-    const paperStyle={padding :20,height:'70vh',width:500, margin:"100px auto"}
+    const paperStyle={padding :20,height:'75vh',width:500, margin:"100px auto"}
     const avatarStyle={backgroundColor:'grey'}
 
     const [email, setEmail] = useState('');
@@ -23,27 +25,49 @@ export const Register = (props) => {
 	const [state, setState] = useState('');
 	const [phone, setPhone] = useState('');
 	const [birth, setBirth] = useState('');
-    const [registerStatus, setRegisterStatus] = useState('');	
+    const [registerStatus, setRegisterStatus] = useState( "");	
 	const navigate = useNavigate();
-
-    
-    const register = (e) => {
+    	var ValidUserName = "True"
+    const register = async (e) => {
         e.preventDefault();	
-	console.log(birth)
-	const date = moment(birth).format("YYYY-MM-DD")
+	console.log(birth.$d)
+	const date = moment(birth.$d).format("YYYY-MM-DD")
 	console.log(date)
+	 //password checklist
+	var lowerCase = /[a-z]/g;
+      var upperCase = /[A-Z]/g;
+      var numbers = /[0-9]/g;
+	setRegisterStatus("")
 	if (!name.trim() || !email.trim() || !pass.trim() || !fname.trim() || !lname.trim() || !age.trim() || !city.trim() || !state.trim()) {
                  setRegisterStatus("Fill out all the boxes")
             } else if (!isNaN(+age) === false){
 		setRegisterStatus("Age is not correct")
-	}else if (!isNaN(+phone) === false){
-		setRegisterStatus("Enter number for phone number")
+
+    	}else if (!isNaN(+phone) === false || phone.length < 10){
+		setRegisterStatus("Phone number must be at least 10 numbers")
 	}else if(moment(birth).isValid() !== true){
                 setRegisterStatus("Enter your birthday")
-	
-    }else{
+
+	}else if (!pass.match(lowerCase) || !pass.match(upperCase) || !pass.match(numbers) || pass.length < 5){
+         setRegisterStatus("Password needs to contain at least 6 characters 1 lowercase 1 uppercase 1 number");
+	}else if (!(validator.isEmail(email))){
+            setRegisterStatus("Please enter valid email")
+            
+	}else{
 		    console.log(date)
-        Axios.post("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/register", {
+await Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUserNames").then(response => {
+                        response.data.forEach(row=>{
+                                if (row.UserName === name){
+                                        setRegisterStatus("Username is taken Please enter another one")
+                                	ValidUserName = "False"
+				}
+			})
+})
+
+	
+		
+              if (ValidUserName === "True") {
+        await Axios.post("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/register", {
             username: name,
             email: email,
             password: pass,
@@ -62,9 +86,13 @@ export const Register = (props) => {
 		navigate('/');
 	    }
         })
-    	}
-    }
+    	
+	}
+		ValidUserName = "True"
+}
 
+		
+    }
     return (
         <Grid>
         <Paper elevation={10} style={paperStyle}>
@@ -92,7 +120,7 @@ export const Register = (props) => {
 	    </LocalizationProvider>
 	    </Grid>
 		</Grid>
-	    <p style={{color: 'red', marginTop: "10px"}}>{registerStatus}</p>
+	    <p style={{color: 'red', marginTop: "10px", fontSize:'13px'}}>{registerStatus}</p>
 	    <Box mt={1}>
                 <Button type='submit' variant="contained" onClick = {register} size="large" >Submit</Button>
             <Typography mt={1}> 
