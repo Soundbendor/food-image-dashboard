@@ -15,10 +15,10 @@ For this project, our goal is to create a useful application for tracking meals.
 [Startup Instructions](https://github.com/Soundbendor/food-image-dashboard/wiki/Startup-Instructions)
 
 # Code Breakdown
-[Visit a step by step guide about how our code works and the resources we used.](https://github.com/Soundbendor/food-image-dashboard/wiki/Code-Breakdown)
+[Visit a step by step guide](https://github.com/Soundbendor/food-image-dashboard/wiki/Code-Breakdown) about how our code works and the resources we used.
 
 # Design Timeline
-[Here is an indepth timeline of our design iteration and implementation throughout the 2022-2023 school year.](https://github.com/Soundbendor/food-image-dashboard/wiki/Design-Iteration-and-Implementation)
+[Here is an indepth timeline](https://github.com/Soundbendor/food-image-dashboard/wiki/Design-Iteration-and-Implementation) of our design iteration and implementation throughout the 2022-2023 school year.
 
 # Documentation
 
