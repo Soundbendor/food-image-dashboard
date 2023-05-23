@@ -2,9 +2,9 @@
 
 Oregon State University Capstone Project
 
-Authors: <br/>
+[Authors: <br/>
 Project Partner: Patrick Donnelly and Soundbendor Lab <br />
-Team Members: Luke Reynolds, Himanshu Dhir, Jayson Kildea, Chih-Yun Wu
+Team Members: Luke Reynolds, Himanshu Dhir, Jayson Kildea, Chih-Yun Wu](https://github.com/Soundbendor/food-image-dashboard/wiki/Our-Team)
 
 Programs/Tools: 
 ReactJS, SQL, AWS
