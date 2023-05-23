@@ -18,7 +18,7 @@ For this project, our goal is to create a useful application for tracking meals.
 
 # Start
 
-[startup-instructions.md](https://github.com/Soundbendor/food-image-dashboard/blob/main/startup-instructions.md)
+[Startup Instructions](https://github.com/Soundbendor/food-image-dashboard/wiki/Startup-Instructions)
 
 # Documentation
 
