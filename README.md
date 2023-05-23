@@ -11,9 +11,9 @@ ReactJS, SQL, AWS
 
 Based on dashboard design by: https://github.com/ed-roh/react-admin-dashboard
 
-# Abstract
+# What is Meal Spotter?
 
-For this project, our goal is to create a useful application for tracking meals.  We designed a website tool able to track users’ diet and provide helpful insights through interactive data visualization, interface to enter in meals by utilizing, and artificial intelligence identification.
+For this project, our goal is to create a useful application for tracking meals. We designed a website tool able to track users’ diet and provide helpful insights through interactive data visualization, interface to enter in meals by utilizing, and artificial intelligence identification. For more information, visit our link [here.](https://github.com/Soundbendor/food-image-dashboard/wiki/What-is-Meal-Spotter%3F)
 
 
 # Start
