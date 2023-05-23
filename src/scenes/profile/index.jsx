@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, Button } from "@mui/material";
 import { tokens } from "../../theme";
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import React,{useState,useEffect} from 'react'
 import Axios from 'axios'
 import P_img from "../../assets/profile.png"
+import { useNavigate } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -15,14 +16,13 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   alignItems: "stretch"
 }));
-
 const Profile = () => {
   const userData = JSON.parse(localStorage.getItem('user'));
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [userList,setUserList]=useState([]);
-  
-  useEffect(()=>{
+const navigate = useNavigate()
+	useEffect(()=>{
     Axios.get("http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3002/DBApi/getUsers").then((data)=>{
       console.log(data)
       setUserList(data.data)
@@ -54,7 +54,8 @@ const Profile = () => {
                 fontWeight="600"
               >
                 <h1> {userData[0].FName} {userData[0].LName} </h1>
-              </Typography>
+          	       <Button variant="contained" size = 'large' onClick={() => navigate('/editProfile')}  sx={{ width: 150}}>Edit</Button>    
+	  </Typography>
                 
             </Box>
             <Box className="title" display="flex" justifyContent="center">

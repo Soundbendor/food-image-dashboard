@@ -20,7 +20,8 @@ app.use(bodyparser.urlencoded({
 }))
 app.use(express.static("./public"))
 app.use(cors({
-	origin: ["http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3000"],
+	origin: ["http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com:3000", 
+		 "http://ec2-54-203-249-218.us-west-2.compute.amazonaws.com"],
 	methods: ["GET", "POST"],
 	credential: true,
 	'Access-Control-Allow-Credentials': 'true',
@@ -39,20 +40,6 @@ app.use(session({
 	},	
 	})
 );
-
-
-var storage = multer.diskStorage({
-  destination: (req, file, callBack ) => {
-    callBack(null, './public/images/')
-  },
-  filename: (req, file, callBack) => {
-    callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  }
-})
-
-var upload = multer ({
-  storage: storage
-});
 
 
 // Route to get list of all users
@@ -173,6 +160,19 @@ app.get("/DBApi/getUserNames", (req,res)=>{
   	return res.status(200).send(result)
 });  });
 
+app.post("/DBApi/getUserByID", (req,res)=>{
+        userid = req.body.userID;
+	console.log("hi")
+  
+
+	db.query("SELECT * FROM USERS WHERE UserID = ?", [userid],
+        (err,result)=>{
+    if(err) {
+    console.log(err)
+    }
+  return res.send(result)
+});   });
+
 app.post('/DBApi/updateProfile', (req, res)=>{
    const username = req.body.username;
   const email = req.body.email;
@@ -183,9 +183,8 @@ app.post('/DBApi/updateProfile', (req, res)=>{
   const state = req.body.state;
   const phone = req.body.phone;
   const birth = req.body.birth;
-
-
- db.query("INSERT INTO USERS (UserName, Email, Password, FName, LName, age, City, State, PhoneNumber, Birthday) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [username, email, hash, fname, lname, age, city, state, phone, birth],
+ const userID = req.body.userID;
+ db.query("UPDATE USERS SET Email = ?, UserName = ?, FName = ?, LName = ?, age = ?, City = ?, State = ?, PhoneNumber = ?, Birthday = ?  WHERE UserID = ?", [email, username, fname, lname, age, city, state, phone, birth, userID],
     (err, result) => {
       if(result){
         res.send(result)
@@ -195,6 +194,7 @@ app.post('/DBApi/updateProfile', (req, res)=>{
     }
   )
   });
+
 
 app.get('/DBApi/getServing', (req, res)=>{
   const foodname = req.query.food;
@@ -240,41 +240,6 @@ app.post('/DBApi/AddMeal', (req, res) => {
   res.status(200).send("Meal Insertion Successful")}
   });
 })
-
-app.post('/DBApi/detectFood', upload.single('image'), (req, res) => {
-  if (!req.file) {
-    console.log("No File Found")
-    return res.status(404).send("Image Error");
-  }
-  return res.status(200).send("Image Download Successful");
-})
-
-app.get('/DBApi/getAIURL', (req, res) => {
-  console.log("AI URL API");
-  const output = execSync('wget https://web.engr.oregonstate.edu/~morgamat/food-url/detection-url.html'
-	  , { encoding: 'utf-8'});
-
-  var URL = execSync('cat detection-url.html'
-	  , { encoding: 'utf-8'});
-  URL = URL.substring(0, URL.length-1);
-  console.log("Final URL: ", URL);
-  execSync('rm detection-url.html');
-  res.status(200).send(URL)
-})
-
-function garb() {
-  console.log("waiting")
-}
-
-app.get('/DBApi/fakeDetect', (req, res) => {
-  console.log("Fake AI");
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 10000);
-  const fakeHeaders = [
-    {"class_name": "Apple"}, {"class_name": "Grilled Cheese"}, {"class_name": "Turkey"} ];
-  const fakeJSON = JSON.stringify(fakeHeaders);
-  res.append('bboxes', fakeJSON);
-  res.status(200).send("MESSAGE");
-});
 
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)

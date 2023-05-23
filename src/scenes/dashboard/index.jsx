@@ -44,25 +44,6 @@ const Dashboard = () => {
         >
           DASHBOARD
         </Typography>
-
-        <Box>
-          <a style={{ 'text-decoration': 'none' }} href="../addmeal">
-            <Button
-              sx={{
-                backgroundColor: colors.boxColor.main,
-                color: colors.headingColor.main,
-                fontSize: "14px",
-                fontWeight: "bold",
-                padding: "10px 20px",
-              }}
-            >
-
-              <AddCircleOutlineIcon sx={{ mr: "10px" }} />
-              Add a Meal
-
-            </Button>
-          </a>
-        </Box>
       </Box>
 
       {/* GRID & CHARTS 

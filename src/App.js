@@ -10,6 +10,7 @@ import Register from "./scenes/register"
 import Meals from "./scenes/meals";
 import AddMeal from "./scenes/addmeal";
 import About from "./scenes/about"
+import EditProfile from "./scenes/editProfile";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
@@ -41,7 +42,7 @@ const PrivateRoute = ({ children }) => {
           <main className="content" style={{ flexGrow: 1, paddingLeft: "300px" }}>
             {showSidebar && <Topbar setIsSidebar={setIsSidebar} />}
             <Routes>
-              <Route path="/" element={<Login/>} />
+              <Route path="/" element={<Login />} />
               <Route path="/login" element={<Login/>} />
               <Route path="/register" element={<Register/>} />
 	      <Route path="/dashboardnpm" element={<PrivateRoute> <Dashboard /> </PrivateRoute>} />
@@ -52,6 +53,7 @@ const PrivateRoute = ({ children }) => {
               <Route path="/meals" element={<PrivateRoute> <Meals /> </PrivateRoute>} />
               <Route path="/addmeal" element={<PrivateRoute> <AddMeal /> </PrivateRoute>} />
               <Route path="/about" element={<PrivateRoute> <About /> </PrivateRoute>} />
+	  	              <Route path="/editProfile" element={<PrivateRoute> <EditProfile /> </PrivateRoute>} />
 	  </Routes>
           </main>
         </div>

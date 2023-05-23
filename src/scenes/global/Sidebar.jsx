@@ -14,6 +14,7 @@ import HealingOutlinedIcon from '@mui/icons-material/HealingOutlined';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Profile from "../../assets/profile.png"
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -148,6 +149,14 @@ const [isCollapsed, setIsCollapsed] = useState(false);
               selected={selected}
               setSelected={setSelected}
             />
+	    
+	    <Item
+	      title="Add A Meal"
+	      to="/addmeal"
+	      icon={<AddCircleOutlineIcon />}
+	      selected={selected}
+	      setSelected={setSelected}
+	    />
 
             <Item
               title="Profile"
